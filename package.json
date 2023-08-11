@@ -1,0 +1,18 @@
+{
+    "name": "training",
+    "version": "1.0.0",
+    "description": "Yaponamama menus learning",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "author": "Abdulbosit Tuychiev & Mirjalol Qosimov",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2",
+        "express-handlebars": "^7.1.2",
+        "nodemon": "^3.0.1"
+    }
+}
