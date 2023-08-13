@@ -16,10 +16,54 @@
         <ul class="navbar-nav ">
         </ul>
         <ul class="navbar-nav ms-auto">
-            <li class="nav-item me-2"><a href="#" class="nav-link"><i class="fs-5 bi bi-fire text-danger"></i></a></li>
-            <li class="nav-item me-2"><a href="#" class="nav-link"><i class="fs-5 bi bi-ubuntu text-warning"></i></a></li>
-            <li class="nav-item me-2"><a href="#" class="nav-link"><i class="fs-5 bi bi-people-fill"></i></a></li>
-            <li class="nav-item me-2"><a href="#" class="nav-link"><i class=" fs-5 bi bi-bell-fill"></i></a></li>
+            <li class="nav-item me-2"><a href="#" class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#groupModal"><i class="fs-5 bi bi-fire text-danger"></i></a></li>
+                <!-- Modal -->
+                <div class="modal fade" id="groupModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                    
+                    <div class="modal-body d-flex flex-column align-items-center justify-content-center">
+                      <img style="height: 100px" src="https://media0.giphy.com/media/sRW4SCnxfcx1LaFBtt/giphy.gif?cid=790b7611td41vt23v2xp0fdesw3m0lx9kj8dyip9usct8rbr&ep=v1_gifs_search&rid=giphy.gif&ct=s" alt="">
+                       <h3 class="fw-bold fs-2">
+                            You’re on a <span class="text-danger">Garyachnik</span> part!
+                       </h3>
+                        <p>
+                            Daily learning habits like this are impressive. See you tomorrow.
+                        </p>
+                    </div>
+                    <div class="modal-footer d-flex flex-column align-items-center justify-content-center">
+                        {{!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Okay, Got it</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            
+            <li class="nav-item me-2"><a href="#" class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#dayStreakModal"><i class=" fs-5 bi bi-ubuntu text-warning"></i></a></li>
+             <!-- Modal -->
+                <div class="modal fade" id="dayStreakModal" tabindex="-1" aria-labelledby="dayStreakModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                    <div class="modal-body d-flex flex-column align-items-center justify-content-center">
+                      <img style="height: 100px" src="https://media0.giphy.com/media/sRW4SCnxfcx1LaFBtt/giphy.gif?cid=790b7611td41vt23v2xp0fdesw3m0lx9kj8dyip9usct8rbr&ep=v1_gifs_search&rid=giphy.gif&ct=s" alt="">
+                       <h3 class="fw-bolder fs-2">
+                            You’re on a <span class="text-primary"> 130-day</span> streak!
+                       </h3>
+                        <p>
+                            Daily learning habits like this are impressive. See you tomorrow.
+                        </p>
+                    </div>
+                    <div class="modal-footer d-flex flex-column align-items-center justify-content-center">
+                        {{!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Okay, Got it</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            
+            <li class="nav-item me-2"><a href="#" class="nav-link"><i class=" fs-5 bi bi-people-fill"></i></a></li>
+            <li class="nav-item me-2"><a href="#" class="nav-link"><i class="  fs-5 bi bi-bell-fill"></i></a></li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     <img src="https://media.licdn.com/dms/image/D4D03AQF65TAAPBZAXg/profile-displayphoto-shrink_400_400/0/1690280152262?e=1697068800&v=beta&t=HA4DMpdWLl1mcRry5JGVQiHh-g1eyoAEDgORDP5FAQk"
