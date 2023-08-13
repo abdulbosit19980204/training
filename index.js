@@ -13,7 +13,21 @@ app.get('/', (req, res) => {
 
 })
 
+app.get('/community', (req, res) => {
+    res.render('community')
 
+})
+
+app.get('/learn', (req, res) => {
+    res.render('learn')
+})
+app.get('/review', (req, res) => {
+    res.render('review')
+})
+
+app.get('/courses', (req, res) => {
+    res.render('courses')
+})
 const PORT = process.env.PROT || 1998
 app.listen(PORT, () => {
     console.log("Server is running on the PORT =>", PORT);
