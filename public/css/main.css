@@ -2,3 +2,11 @@ body {
     font-family: "Inter", sans-serif;
     /* Replace "Your Custom Font" with the actual name of your font */
 }
+
+
+/* Items */
+
+.item-hover:hover {
+    background-color: rgb(243, 248, 254);
+    transition: background-color 0.2s ease 0s;
+}
