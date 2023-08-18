@@ -10,3 +10,8 @@ body {
     background-color: rgb(243, 248, 254);
     transition: background-color 0.2s ease 0s;
 }
+
+.zindex-modal {
+    z-index: 1050;
+    /* Set a value higher than the navbar */
+}

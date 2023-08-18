@@ -22,6 +22,8 @@ router.get('/learn', (req, res) => {
     res.render('learn', {
         title: "Lessons",
         isLearn: true,
+        isComplatedModule: true,
+        isCurrentModule: false,
     })
 })
 router.get('/review', (req, res) => {

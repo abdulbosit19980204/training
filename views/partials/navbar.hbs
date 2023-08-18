@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light p-3 shadow p-3 mb-5 bg-body-tertiary rounded ">
     <a href="/learn" class="navbar-brand">
-        <img style="width: 100%; height: 32px;" src="https://www.yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
+        <img style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,53 +34,16 @@
         </ul>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item me-2"><a href="#" class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#groupModal"><i class="fs-5 bi bi-fire text-danger"></i></a></li>
-                <!-- Modal -->
-                <div class="modal fade" id="groupModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
-                <div class="modal-dialog ">
-                    <div class="modal-content">
-                    
-                    <div class="modal-body d-flex flex-column align-items-center justify-content-center">
-                      <img style="height: 100px" src="https://media0.giphy.com/media/sRW4SCnxfcx1LaFBtt/giphy.gif?cid=790b7611td41vt23v2xp0fdesw3m0lx9kj8dyip9usct8rbr&ep=v1_gifs_search&rid=giphy.gif&ct=s" alt="">
-                       <h3 class="fw-bold fs-2">
-                            You’re on a <span class="text-danger">Garyachnik</span> part!
-                       </h3>
-                        <p>
-                            Daily learning habits like this are impressive. See you tomorrow.
-                        </p>
-                    </div>
-                    <div class="modal-footer d-flex flex-column align-items-center justify-content-center">
-                        {{!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Okay, Got it</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-            
             <li class="nav-item me-2"><a href="#" class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#dayStreakModal"><i class=" fs-5 bi bi-ubuntu text-warning"></i></a></li>
-             <!-- Modal -->
-                <div class="modal fade" id="dayStreakModal" tabindex="-1" aria-labelledby="dayStreakModalLabel" aria-hidden="true">
-                <div class="modal-dialog ">
-                    <div class="modal-content">
-                    <div class="modal-body d-flex flex-column align-items-center justify-content-center">
-                      <img style="height: 100px" src="https://media0.giphy.com/media/sRW4SCnxfcx1LaFBtt/giphy.gif?cid=790b7611td41vt23v2xp0fdesw3m0lx9kj8dyip9usct8rbr&ep=v1_gifs_search&rid=giphy.gif&ct=s" alt="">
-                       <h3 class="fw-bolder fs-2">
-                            You’re on a <span class="text-primary"> 130-day</span> streak!
-                       </h3>
-                        <p>
-                            Daily learning habits like this are impressive. See you tomorrow.
-                        </p>
-                    </div>
-                    <div class="modal-footer d-flex flex-column align-items-center justify-content-center">
-                        {{!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Okay, Got it</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            
             <li class="nav-item me-2"><a href="#" class="nav-link"><i class=" fs-5 bi bi-people-fill"></i></a></li>
             <li class="nav-item me-2"><a href="#" class="nav-link"><i class="  fs-5 bi bi-bell-fill"></i></a></li>
+            <li class="nav-item me-2">
+                <a href="#" class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmRhTLltigt0hR8N7MVIWslzOVYG3mYhJYM0tLziHxcxA4ObVLFAeZz8T8mt320pEVZsA&usqp=CAU"
+                        alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+               
+            </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     <img src="https://media.licdn.com/dms/image/D4D03AQF65TAAPBZAXg/profile-displayphoto-shrink_400_400/0/1690280152262?e=1697068800&v=beta&t=HA4DMpdWLl1mcRry5JGVQiHh-g1eyoAEDgORDP5FAQk"
@@ -98,4 +61,57 @@
     </div>
 </nav>
 
+{{!-- Courses --}}
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="offcanvas-header">
+<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div class="offcanvas-body">
+<p>Try scrolling the rest of the page to see this option in action.</p>
+</div>
+</div>
 
+
+<!-- Modal parts -->
+<div class="modal fade zindex-modal" id="groupModal" tabindex="-1" aria-labelledby="groupModalLabel" aria-hidden="true">
+<div class="modal-dialog ">
+<div class="modal-content">
+
+<div class="modal-body d-flex flex-column align-items-center justify-content-center">
+<img style="height: 100px" src="https://media0.giphy.com/media/sRW4SCnxfcx1LaFBtt/giphy.gif?cid=790b7611td41vt23v2xp0fdesw3m0lx9kj8dyip9usct8rbr&ep=v1_gifs_search&rid=giphy.gif&ct=s" alt="">
+<h3 class="fw-bold fs-2">
+You’re on a <span class="text-danger">Garyachnik</span> part!
+</h3>
+<p>
+Daily learning habits like this are impressive. See you tomorrow.
+</p>
+</div>
+<div class="modal-footer d-flex flex-column align-items-center justify-content-center">
+{{!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+<button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Okay, Got it</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Modal days streaks-->
+<div class="modal fade" id="dayStreakModal" tabindex="-1" aria-labelledby="dayStreakModalLabel" aria-hidden="true">
+<div class="modal-dialog ">
+<div class="modal-content">
+<div class="modal-body d-flex flex-column align-items-center justify-content-center">
+<img style="height: 100px" src="https://media0.giphy.com/media/sRW4SCnxfcx1LaFBtt/giphy.gif?cid=790b7611td41vt23v2xp0fdesw3m0lx9kj8dyip9usct8rbr&ep=v1_gifs_search&rid=giphy.gif&ct=s" alt="">
+<h3 class="fw-bolder fs-2">
+You’re on a <span class="text-primary"> 130-day</span> streak!
+</h3>
+<p>
+Daily learning habits like this are impressive. See you tomorrow.
+</p>
+</div>
+<div class="modal-footer d-flex flex-column align-items-center justify-content-center">
+{{!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+<button type="button" class="btn btn-primary" data-bs-dismiss="modal" aria-label="Close">Okay, Got it</button>
+</div>
+</div>
+</div>
+</div>

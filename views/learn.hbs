@@ -15,157 +15,105 @@ Beginner A1
             Yaponamama</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <ul class="nav flex-column ">
-            <li class="nav-item">
-                
-                <a class="nav-link active rounded" aria-current="page" href="#">
-                    <div class="row align-items-center item-hover ">
-                        <div class="col-3">
-                            <img src="https://sushi-rolls.com/wp-content/uploads/2017/05/amerikano.png" style="border-radius: 100%; border: 4px solid  rgb(14, 190, 117); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
-                        </div>
-                        <div class="col-8 ">
-                            <p class="m-0 fs-5 fw-medium">Ролл Americano</p>
-                            <p class="text-secondary fw-lighter">горячий роллы</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="">
-                        <i class="bi bi-check-circle-fill fs-4 text-success" style="position: relative; top: -2px; left: 28px; z-index: 3; "></i>
-                        <div  style="position: relative; top: 0px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color:  rgb(14, 190, 117); border-radius: 5px;"></div>
+        <div class="modal-body">
+            <ul class="nav flex-column ">
+                <li class="nav-item">
+                    {{#if isComplatedModule}}
+                        <a class="nav-link active rounded" aria-current="page" href="#">
+                         <div class="row align-items-center item-hover ">
+                            <div class="col-3">
+                                <img src="https://media.istockphoto.com/id/1437505619/vector/happy-chef-in-hat-emblem-and-logo-cook-baker-badge-food-restaurant-concept-cartoon-colored.jpg?s=612x612&w=0&k=20&c=Ze0t3sjQ9ZU6IRoXe4W3GGgewzieH9ziofpD4L0j0Gk=" style="border-radius: 100%; border: 4px solid  rgb(14, 190, 117); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <p class="m-0 fs-5 fw-medium">Sushi Bar</p>
+                                <p class="text-secondary fw-lighter">горячий роллы</p>
+                            </div>
+                         </div>
+                         <div class="row">
+                            <div class="">
+                            <i class="bi bi-check-circle-fill fs-4 text-success" style="position: relative; top: -2px; left: 28px; z-index: 3; "></i>
+                            <div  style="position: relative; top: 0px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color:  rgb(14, 190, 117); border-radius: 5px;"></div>
 
+                            </div>
+                            <div class="col-8"></div>
+                         </div>
+                        </a>
+                    {{else}}
+                        <a class="nav-link active" aria-current="page" href="#">
+                       {{#if isCurrentModule}}
+                        <div class="row align-items-center bg-info-subtle rounded">
+                            <div class="col-3 ">
+                                <img src="https://sushi-rolls.com/wp-content/uploads/2017/05/amerikano.png" style="border-radius: 100%; border: 4px solid rgb(218, 225, 234); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <p class="m-0 fs-5 fw-medium">Ролл Fila boom</p>
+                                <p class="text-secondary fw-lighter">горячий роллы</p>
+                            </div>
                         </div>
-                        <div class="col-8"></div>
-                    </div>
+                        {{else}}
+                        <div class="row align-items-center">
+                            <div class="col-3 ">
+                                <img src="https://sushi-rolls.com/wp-content/uploads/2017/05/amerikano.png" style="border-radius: 100%; border: 4px solid rgb(218, 225, 234); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <p class="m-0 fs-5 fw-medium">Ролл Fila boom</p>
+                                <p class="text-secondary fw-lighter">горячий роллы</p>
+                            </div>
+                        </div>
+                        {{/if}}
+                        <div class="row">
+                            <div class="">
+                            <div  style="position: relative; top: 8px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color: rgb(218, 225, 234); border-radius: 5px;"></div>
+                            </div>
+                            <div class="col-8"></div>
+                        </div>
+                        </a>
+                    {{/if}}
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <div class="row align-items-center">
+                            <div class="col-3 ">
+                                <img src="https://www.seekpng.com/png/detail/18-184210_chef-hat-clipart-at-getdrawings-free-koki-vector.png" style="border-radius: 100%; border: 4px solid rgb(218, 225, 234); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <p class="m-0 fs-5 fw-medium">Goryachka</p>
+                                <p class="text-secondary fw-lighter">горячий роллы</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="">
+                            <div  style="position: relative; top: 8px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color: rgb(218, 225, 234); border-radius: 5px;"></div>
+                            </div>
+                            <div class="col-8"></div>
+                        </div>
+                        
+
+                        
+                    </a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active bg-warning-subtle rounded" aria-current="page" href="#">
+                        <div class="row align-items-center">
+                            <div class="col-3 ">
+                                <img src="https://cdn-icons-png.flaticon.com/512/6303/6303225.png" style="border-radius: 100%; border: 4px solid rgb(211, 211, 211); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
+                            </div>
+                            <div class="col-8 ">
+                                <p class="m-0 fs-5 fw-medium">Finally exam</p>
+                                <p class="text-secondary fw-lighter">Test your skills to access the next chapter</p>
+                            </div>
+                        </div>
                     
+                        
 
-                    
-                </a>
+                        
+                    </a>
 
-            </li>
-            <li class="nav-item">
-                
-                <a class="nav-link active rounded" aria-current="page" href="#">
-                    <div class="row align-items-center item-hover ">
-                        <div class="col-3">
-                            <img src="https://sushi-rolls.com/wp-content/uploads/2017/05/amerikano.png" style="border-radius: 100%; border: 4px solid  rgb(14, 190, 117); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
-                        </div>
-                        <div class="col-8 ">
-                            <p class="m-0 fs-5 fw-medium">Ролл Americano</p>
-                            <p class="text-secondary fw-lighter">горячий роллы</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="">
-                        <i class="bi bi-check-circle-fill fs-4 text-success" style="position: relative; top: -2px; left: 28px; z-index: 3; "></i>
-                        <div  style="position: relative; top: 0px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color:  rgb(14, 190, 117); border-radius: 5px;"></div>
-
-                        </div>
-                        <div class="col-8"></div>
-                    </div>
-                    
-
-                    
-                </a>
-
-            </li>
-            <li class="nav-item">
-                
-                <a class="nav-link active rounded" aria-current="page" href="#">
-                    <div class="row align-items-center item-hover ">
-                        <div class="col-3">
-                            <img src="https://sushi-rolls.com/wp-content/uploads/2017/05/amerikano.png" style="border-radius: 100%; border: 4px solid  rgb(14, 190, 117); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
-                        </div>
-                        <div class="col-8 ">
-                            <p class="m-0 fs-5 fw-medium">Ролл Americano</p>
-                            <p class="text-secondary fw-lighter">горячий роллы</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="">
-                        <i class="bi bi-check-circle-fill fs-4 text-success" style="position: relative; top: -2px; left: 28px; z-index: 3; "></i>
-                        <div  style="position: relative; top: 0px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color:  rgb(14, 190, 117); border-radius: 5px;"></div>
-
-                        </div>
-                        <div class="col-8"></div>
-                    </div>
-                    
-
-                    
-                </a>
-
-            </li>
-            <li class="nav-item">
-                
-                <a class="nav-link active" aria-current="page" href="#">
-                    <div class="row align-items-center">
-                        <div class="col-3 ">
-                            <img src="https://ptz.tokyo-city.ru/goods/800%D1%85520_july_nabor_filaboom_649db3eb5c88f.jpg" style="border-radius: 100%; border: 4px solid rgb(218, 225, 234); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
-                        </div>
-                        <div class="col-8 ">
-                            <p class="m-0 fs-5 fw-medium">Ролл Fila boom</p>
-                            <p class="text-secondary fw-lighter">горячий роллы</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="">
-                        <div  style="position: relative; top: 8px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color: rgb(218, 225, 234); border-radius: 5px;"></div>
-                        </div>
-                        <div class="col-8"></div>
-                    </div>
-                    
-
-                    
-                </a>
-
-            </li>
-            <li class="nav-item">
-                
-                <a class="nav-link active" aria-current="page" href="#">
-                    <div class="row align-items-center">
-                        <div class="col-3 ">
-                            <img src="https://ptz.tokyo-city.ru/goods/800%D1%85520_july_nabor_filaboom_649db3eb5c88f.jpg" style="border-radius: 100%; border: 4px solid rgb(218, 225, 234); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
-                        </div>
-                        <div class="col-8 ">
-                            <p class="m-0 fs-5 fw-medium">Ролл Fila boom</p>
-                            <p class="text-secondary fw-lighter">горячий роллы</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="">
-                        <div  style="position: relative; top: 8px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color: rgb(218, 225, 234); border-radius: 5px;"></div>
-                        </div>
-                        <div class="col-8"></div>
-                    </div>
-                    
-
-                    
-                </a>
-
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active bg-warning-subtle rounded" aria-current="page" href="#">
-                    <div class="row align-items-center">
-                        <div class="col-3 ">
-                            <img src="https://cdn-icons-png.flaticon.com/512/6303/6303225.png" style="border-radius: 100%; border: 4px solid rgb(211, 211, 211); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
-                        </div>
-                        <div class="col-8 ">
-                            <p class="m-0 fs-5 fw-medium">Finally exam</p>
-                            <p class="text-secondary fw-lighter">Test your skills to access the next chapter</p>
-                        </div>
-                    </div>
-                
-                    
-
-                    
-                </a>
-
-            </li>
- 
-        </ul>
-       
-               
-      </div>
+                </li>
+    
+            </ul>
+        </div>
       
     </div>
   </div>
@@ -189,6 +137,7 @@ Beginner A1
 </div>
 
 <ul class="nav flex-column ">
+    {{!-- Ended lessons --}}
   <li class="nav-item">
     
     <a class="nav-link active rounded" aria-current="page" href="#">
@@ -215,6 +164,7 @@ Beginner A1
     </a>
 
   </li>
+   {{!-- New lessons --}}
   <li class="nav-item">
     
     <a class="nav-link active" aria-current="page" href="#">
@@ -239,6 +189,7 @@ Beginner A1
     </a>
 
   </li>
+    {{!-- Checkpoints --}}
   <li class="nav-item">
      <a class="nav-link active bg-warning-subtle rounded" aria-current="page" href="#">
         <div class="row align-items-center">
