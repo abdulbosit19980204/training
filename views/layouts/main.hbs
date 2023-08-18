@@ -2,8 +2,9 @@
 <html lang="en">
 {{> head}}
 <body>
+  {{#if isRegistred}}
   {{>navbar}}
- 
+ {{/if}}
     <div class="container mt-5 ms-auto d-flex justify-content-center">
       {{{body}}}
 
