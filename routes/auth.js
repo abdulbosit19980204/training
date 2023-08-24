@@ -1,6 +1,6 @@
 import { Router } from "express";
 import User from "../models/User.js";
-
+import bcrypt from "bcrypt"
 const router = Router()
 
 router.get('/login', (req, res) => {
@@ -22,12 +22,12 @@ router.post('/login', (req, res) => {
 })
 
 router.post('/apply', async(req, res) => {
-    console.log(req.body);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
     const userData = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        password: req.body.password,
+        password: hashedPassword,
         superAdmin: req.body.superAdmin ? 'on' : 'off',
         admin: req.body.admin ? 'on' : 'off',
 
