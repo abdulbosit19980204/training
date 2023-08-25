@@ -1,7 +1,7 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light shadow-sm  bg-light-subtle  bs-body-bg">
+<nav class="navbar d-flex justify-content-center sticky-top navbar-expand-lg navbar-light shadow-sm  bg-light-subtle  bs-body-bg">
     
     {{#if token}}
-    <a href="/learn" class="navbar-brand">
+    <a href="/learn" class="navbar-brand mx-3">
         <img class="d-none d-lg-block" style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
     </a>
    
@@ -105,35 +105,36 @@
     </div>
     {{/if}}
 </nav>
-<nav class="navbar fixed-bottom d-lg-none navbar-light  bg-light-subtle bs-body-bg  ">
+<nav class="navbar d-flex justify-content-center fixed-bottom d-lg-none navbar-light  bg-light-subtle bs-body-bg  ">
     {{#if token}}
     
-    <a href="/learn" class="navbar-brand p-2">
-        <img class="d-none d-lg-block d-xl-none" style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
-    </a>
-    <ul class="nav nav-pills d-lg-none">
-            {{#if isLearn}}
-            <li class="nav-item"><a href="/learn" class="nav-link  text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-journal-album"></i> </a></li>
-            {{else}}
-            <li class="nav-item"><a href="/learn" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-journal-album"></i> </a></li>
-            {{/if}}
-            {{#if isReview}}
-            <li class="nav-item"><a href="/review" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-clipboard"></i> </a></li>
-            {{else}}
-            <li class="nav-item"><a href="/review" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-clipboard"></i> </a></li>
-            {{/if}}
-            {{#if isCommunity}}
-            <li class="nav-item"><a href="/community" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-chat-dots"></i> </a></li>
-          
-            {{else}}
-            <li class="nav-item"><a href="/community" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-chat-dots "></i> </a></li>
-            {{/if}}
-            {{#if isCourses}}
-            <li class="nav-item"><a href="/courses" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-journals"></i> </a></li>
-            {{else}}
-            <li class="nav-item"><a href="/courses" class="nav-link text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-journals"></i> </a></li>
-            {{/if}}
-    </ul>
+        <a href="/learn" class="navbar-brand">
+            <img class="d-none d-lg-block d-xl-none" style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
+        </a>
+        <ul class="nav nav-pills d-lg-none d-flex">
+                {{#if isLearn}}
+                <li class="nav-item"><a href="/learn" class="nav-link  text-primary bg-primary-subtle rounded "><i class="fs-5 bi bi-journal-album"></i> </a></li>
+                {{else}}
+                <li class="nav-item"><a href="/learn" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-journal-album"></i> </a></li>
+                {{/if}}
+                {{#if isReview}}
+                <li class="nav-item"><a href="/review" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-clipboard"></i> </a></li>
+                {{else}}
+                <li class="nav-item"><a href="/review" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-clipboard"></i> </a></li>
+                {{/if}}
+                {{#if isCommunity}}
+                <li class="nav-item"><a href="/community" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-chat-dots"></i> </a></li>
+            
+                {{else}}
+                <li class="nav-item"><a href="/community" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-chat-dots "></i> </a></li>
+                {{/if}}
+                {{#if isCourses}}
+                <li class="nav-item"><a href="/courses" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-journals"></i> </a></li>
+                {{else}}
+                <li class="nav-item"><a href="/courses" class="nav-link text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-journals"></i> </a></li>
+                {{/if}}
+        </ul>
+    
    {{else}}
     <a href="/" class="navbar-brand ms-2">
         <img style="width: 100%; height: 32px;" src="./img/icons/logo.svg" alt="">
