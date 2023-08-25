@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light p-3 shadow p-3 mb-5 bs-body-bg rounded ">
     
-    {{#if isRegistred}}
+    {{#if token}}
     <a href="/learn" class="navbar-brand">
         <img style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
     </a>
@@ -62,9 +62,24 @@
         </ul>
     </div>
 {{else}}
- <a href="/" class="navbar-brand">
-        <img style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
+    <a href="/" class="navbar-brand">
+        <img style="width: 100%; height: 32px;" src="./img/icons/logo.svg" alt="">
     </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    <img src="./img/icons/unregistred_user.png"
+                        alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#"><i class="bi bi-question-circle-fill"></i> Help</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/"><i class="bi bi-exclamation-circle-fill"></i> Login</a>
+                </div>
+            </li>
+        </ul>
+    </div>
     {{/if}}
 </nav>
 

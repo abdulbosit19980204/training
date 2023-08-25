@@ -14,7 +14,7 @@ router.get('/community', (req, res) => {
     res.render('community', {
         title: "Community",
         isCommunity: true,
-        isRegistred: true,
+
     })
 
 })
@@ -25,14 +25,15 @@ router.get('/learn', (req, res) => {
         isLearn: true,
         isComplatedModule: true,
         isCurrentModule: false,
-        isRegistred: true,
+        token: false,
+
     })
 })
 router.get('/review', (req, res) => {
     res.render('review', {
         title: "Review",
         isReview: true,
-        isRegistred: true,
+
     })
 })
 
@@ -40,7 +41,7 @@ router.get('/courses', (req, res) => {
     res.render('courses', {
         title: "Courses",
         isCourses: true,
-        isRegistred: true,
+
     })
 })
 
