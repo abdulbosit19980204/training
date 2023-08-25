@@ -1,8 +1,46 @@
+<main class="form-signin text-center mx-auto w-25 d-none d-md-block">
+    
+    <form action="/login" method="post">
+    <img class="mb-4" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="" width="150">
+    <h1 class="h4 mb-3 fw-normal">Please sign in</h1>
+
+{{#if logErr}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> {{logErr}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+    <div class="form-floating mb-2">
+      <input name="email"  type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating mb-2">
+      <input  name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+    <div class="form-check text-start my-3">
+      <input name="rememberChoice"  class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Remember me
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+    <p class="mt-4 mb-3 text-muted">© 2017–2023</p>
+    </form>
+</main>
+
 <main class="form-signin text-center mx-auto w-100 d-block d-md-none">
     <form action="/login" method="post">
     <img class="mb-4" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="" width="150">
     <h1 class="h4 mb-3 fw-normal">Please sign in</h1>
-
+{{#if logErr}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> {{logErr}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
     <div class="form-floating mb-2">
       <input name="email"  type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
@@ -23,27 +61,3 @@
     </form>
 </main>
 
-<main class="form-signin text-center mx-auto w-25 d-none d-md-block">
-    <form action="/login" method="post">
-    <img class="mb-4" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="" width="150">
-    <h1 class="h4 mb-3 fw-normal">Please sign in</h1>
-
-    <div class="form-floating mb-2">
-      <input name="email"  type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating mb-2">
-      <input  name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-
-    <div class="form-check text-start my-3">
-      <input name="rememberChoice"  class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-    <p class="mt-4 mb-3 text-muted">© 2017–2023</p>
-    </form>
-</main>
