@@ -1,13 +1,36 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light border border-bottom border-light-subtle bg-light-subtle p-3 shadow-sm p-3 mb-5 bs-body-bg rounded ">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light shadow-sm  bg-light-subtle  bs-body-bg">
     
     {{#if token}}
     <a href="/learn" class="navbar-brand">
-        <img style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
+        <img class="d-none d-lg-block" style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+   
+         <ul class="nav nav-pills d-lg-none ">
+            <li class=""><a href="#" class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#groupModal"><i class="fs-5 bi bi-fire text-danger"></i></a></li>
+            <li class=""><a href="#" class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#dayStreakModal"><i class=" fs-5 bi bi-ubuntu text-warning"></i></a></li>
+            {{!-- <li class="me-3"><a href="#" class="nav-link"><i class=" fs-5 bi bi-people-fill"></i></a></li> --}}
+            <li class=""><a href="#" class="nav-link"><i class="  fs-5 bi bi-bell-fill"></i></a></li>
+            <li class="">
+                <a href="#" class="nav-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmRhTLltigt0hR8N7MVIWslzOVYG3mYhJYM0tLziHxcxA4ObVLFAeZz8T8mt320pEVZsA&usqp=CAU"
+                        alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link " data-bs-toggle="dropdown">
+                    <img src="https://media.licdn.com/dms/image/D4D03AQF65TAAPBZAXg/profile-displayphoto-shrink_400_400/0/1690280152262?e=1697068800&v=beta&t=HA4DMpdWLl1mcRry5JGVQiHh-g1eyoAEDgORDP5FAQk"
+                        alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i> My profile</a>
+                    <a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> Settings</a>
+                    <a class="dropdown-item" href="#"><i class="bi bi-question-circle-fill"></i> Help</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout"><i class="bi bi-exclamation-circle-fill"></i> Logout</a>
+                </div>
+            </li>
+        </ul>
+   
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             {{#if isLearn}}
@@ -62,7 +85,7 @@
         </ul>
     </div>
 {{else}}
-    <a href="/" class="navbar-brand">
+    <a href="/" class="navbar-brand text-center ms-5 ps-5">
         <img style="width: 100%; height: 32px;" src="./img/icons/logo.svg" alt="">
     </a>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -82,6 +105,62 @@
     </div>
     {{/if}}
 </nav>
+<nav class="navbar fixed-bottom d-lg-none navbar-light  bg-light-subtle bs-body-bg  ">
+    {{#if token}}
+    
+    <a href="/learn" class="navbar-brand p-2">
+        <img class="d-none d-lg-block d-xl-none" style="width: 100%; height: 32px;" src="https://yaponamama.uz/_nuxt/img/logo.2cdc733.svg" alt="">
+    </a>
+    <ul class="nav nav-pills d-lg-none">
+            {{#if isLearn}}
+            <li class="nav-item"><a href="/learn" class="nav-link  text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-journal-album"></i> </a></li>
+            {{else}}
+            <li class="nav-item"><a href="/learn" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-journal-album"></i> </a></li>
+            {{/if}}
+            {{#if isReview}}
+            <li class="nav-item"><a href="/review" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-clipboard"></i> </a></li>
+            {{else}}
+            <li class="nav-item"><a href="/review" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-clipboard"></i> </a></li>
+            {{/if}}
+            {{#if isCommunity}}
+            <li class="nav-item"><a href="/community" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-chat-dots"></i> </a></li>
+          
+            {{else}}
+            <li class="nav-item"><a href="/community" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-chat-dots "></i> </a></li>
+            {{/if}}
+            {{#if isCourses}}
+            <li class="nav-item"><a href="/courses" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-journals"></i> </a></li>
+            {{else}}
+            <li class="nav-item"><a href="/courses" class="nav-link text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-journals"></i> </a></li>
+            {{/if}}
+    </ul>
+   {{else}}
+    <a href="/" class="navbar-brand ms-2">
+        <img style="width: 100%; height: 32px;" src="./img/icons/logo.svg" alt="">
+    </a>
+  <ul class="nav nav-pills d-lg-none">
+          
+            {{#if isCommunity}}
+            <li class="nav-item"><a href="/community" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-chat-dots"></i> </a></li>
+            {{else}}
+            <li class="nav-item"><a href="/community" class="nav-link  text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-chat-dots "></i> </a></li>
+            {{/if}}
+            {{#if isCourses}}
+            <li class="nav-item"><a href="/courses" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-journals"></i> </a></li>
+            {{else}}
+            <li class="nav-item"><a href="/courses" class="nav-link text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-journals"></i> </a></li>
+            {{/if}}
+            {{#if isLogin}}
+            <li class="nav-item"><a href="/login" class="nav-link text-primary bg-primary-subtle rounded"><i class="fs-5 bi bi-person-bounding-box"></i> </a></li>
+            {{else}}
+            <li class="nav-item"><a href="/login" class="nav-link text-secondary-emphasis fw-medium"><i class="fs-5 bi bi-person-bounding-box"></i> </a></li>
+            {{/if}}
+            
+    </ul>
+    {{/if}}
+</nav>
+
+
 
 {{!-- Courses --}}
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
