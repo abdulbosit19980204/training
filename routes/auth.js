@@ -5,6 +5,9 @@ import { genrateJWTToken } from "../services/token.js";
 const router = Router()
 
 router.get('/login', (req, res) => {
+    if (req.cookies.token) {
+        res.redirect('/learn')
+    }
     res.render('login', {
         title: "Login",
         isLogin: true,
@@ -12,12 +15,20 @@ router.get('/login', (req, res) => {
     })
 })
 router.get('/apply', (req, res) => {
-        res.render('apply', {
-            title: "Apply",
-            isApply: true,
-            regErr: req.flash('regErr')
-        })
+    if (req.cookies.token) {
+        res.redirect('/learn')
+    }
+    res.render('apply', {
+        title: "Apply",
+        isApply: true,
+        regErr: req.flash('regErr')
+    })
 
+})
+
+router.get('/logout', (req, res) => {
+        res.clearCookie('token')
+        res.redirect('/learn')
     })
     // Posts
 

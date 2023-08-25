@@ -25,8 +25,6 @@ router.get('/learn', (req, res) => {
         isLearn: true,
         isComplatedModule: true,
         isCurrentModule: false,
-        token: false,
-
     })
 })
 router.get('/review', (req, res) => {
