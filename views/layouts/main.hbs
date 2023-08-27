@@ -2,12 +2,16 @@
 <html lang="en">
 {{> head}}
 <body>
+  {{#if isAdmin}}
+      {{{body}}}
+  {{else}}
    {{>navbar}}
     <div class="container mt-5 ms-auto d-flex justify-content-center">
       {{{body}}}
 
     </div>
 
+    {{/if}}
       {{>footer}}
 </body>
 </html>
