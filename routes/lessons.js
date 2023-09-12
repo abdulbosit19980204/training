@@ -1,8 +1,11 @@
 import { Router } from "express";
+import Lesson from "../models/Lesson.js";
+import Restaurant from "../models/Restaurants.js"
 
 const router = Router()
 
 router.get('/', (req, res) => {
+
     res.render('index', {
         title: "Home",
         isHome: true,
@@ -19,12 +22,14 @@ router.get('/community', (req, res) => {
 
 })
 
-router.get('/learn', (req, res) => {
+router.get('/learn', async(req, res) => {
+    const RestaurantData = await Restaurant.find()
     res.render('learn', {
         title: "Lessons",
         isLearn: true,
         isComplatedModule: true,
         isCurrentModule: false,
+        RestaurantData: RestaurantData,
     })
 })
 router.get('/review', (req, res) => {

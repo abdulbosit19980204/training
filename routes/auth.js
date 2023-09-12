@@ -48,7 +48,7 @@ router.post('/login', async(req, res) => {
     }
     const isPassEqual = await bcrypt.compare(req.body.password, existUser.password)
     if (!isPassEqual) {
-        req.flash('logErr', "Password is wr")
+        req.flash('logErr', "Password is wrong")
         res.redirect('/login')
     }
 
