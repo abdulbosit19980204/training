@@ -23,13 +23,15 @@ router.get('/community', (req, res) => {
 })
 
 router.get('/learn', async(req, res) => {
-    const RestaurantData = await Restaurant.find()
+    const RestaurantData = await Restaurant.find().lean()
+    const lessons = await Lesson.find().lean()
     res.render('learn', {
         title: "Lessons",
         isLearn: true,
         isComplatedModule: true,
         isCurrentModule: false,
         RestaurantData: RestaurantData,
+        lessons: lessons,
     })
 })
 router.get('/review', (req, res) => {

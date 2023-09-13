@@ -138,6 +138,69 @@ Beginner A1
 </div>
 
 <ul class="nav flex-column mb-5">
+  {{#each lessons}}
+   {{#if isEnded}}
+    {{!-- Ended lessons --}}
+  <li class="nav-item">
+    
+    <a class="nav-link active rounded" aria-current="page" href="#">
+        <div class="row align-items-center item-hover gap-3 gap-md-0">
+            <div class="col-3">
+                <img src="{{lessonimgPath}}" style="border-radius: 100%; border: 4px solid  rgb(14, 190, 117); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
+            </div>
+            <div class="col-8 ">
+                <p class="m-0 fs-5 fw-medium">{{lessonTitle}}</p>
+                <p class="text-secondary fw-lighter">{{lessonDescription}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="">
+            <i class="bi bi-check-circle-fill fs-4 text-success" style="position: relative; top: -2px; left: 28px; z-index: 3; "></i>
+            <div  style="position: relative; top: 0px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color:  rgb(14, 190, 117); border-radius: 5px;"></div>
+
+            </div>
+            <div class="col-8"></div>
+        </div>
+        
+
+        
+    </a>
+
+  </li>
+  {{else}}
+   {{!-- New lessons --}}
+  <li class="nav-item ">
+    
+    <a class="nav-link active" aria-current="page" href="#">
+        <div class="row align-items-center gap-3 gap-md-0 item-hover">
+            <div class="col-3 ">
+                <img src="{{lessonimgPath}}" style="border-radius: 100%; border: 4px solid rgb(218, 225, 234); height: 80px; width: 80px; padding: 10px; background-color: rgb(244, 245, 248);" alt="">
+            </div>
+            <div class="col-8 ">
+                <p class="m-0 fs-5 fw-medium">{{lessonTitle}}</p>
+                <p class="text-secondary fw-lighter">{{lessonDescription}} 
+                  <span class="badge bg-info-subtle text-info-emphasis rounded-pill">New</span>
+  </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="">
+            <div  style="position: relative; top: 8px; left: 38px; z-index: 3; width: 0.25rem; height: 40px; background-color: rgb(218, 225, 234); border-radius: 5px;"></div>
+            </div>
+            <div class="col-8"></div>
+        </div>
+        
+
+        
+    </a>
+
+  </li>
+  {{/if}}
+   
+ 
+  {{/each}}
+
+  
     {{!-- Ended lessons --}}
   <li class="nav-item">
     
