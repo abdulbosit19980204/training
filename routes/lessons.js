@@ -50,4 +50,13 @@ router.get('/courses', (req, res) => {
     })
 })
 
+router.get('/lesson-detail', async(req, res) => {
+    const lessonDetail = await Lesson.find().lean()
+    const firstLesson = lessonDetail[0];
+    console.log(firstLesson);
+    res.render('lessonDetail', {
+        title: "Lesson details",
+        lessonDetail: firstLesson,
+    })
+})
 export default router
