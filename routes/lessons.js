@@ -1,6 +1,7 @@
 import { Router } from "express";
 import Lesson from "../models/Lesson.js";
 import Restaurant from "../models/Restaurants.js"
+import Parts from "../models/Part.js"
 
 const router = Router()
 
@@ -24,6 +25,7 @@ router.get('/community', (req, res) => {
 
 router.get('/learn', async(req, res) => {
     const RestaurantData = await Restaurant.find().lean()
+    const Part = await Parts.find().lean()
     const lessons = await Lesson.find().lean()
     res.render('learn', {
         title: "Lessons",
@@ -32,6 +34,7 @@ router.get('/learn', async(req, res) => {
         isCurrentModule: false,
         RestaurantData: RestaurantData,
         lessons: lessons,
+        Part: Part,
     })
 })
 router.get('/review', (req, res) => {
