@@ -53,13 +53,13 @@ router.get('/courses', (req, res) => {
     })
 })
 
-router.get('/lesson-detail', async(req, res) => {
-    const lessonDetail = await Lesson.find().lean()
-    const firstLesson = lessonDetail[0];
-    console.log(firstLesson);
+router.get('/lesson/:id', async(req, res) => {
+    const id = req.params.id
+    const lessonDetail = await Lesson.findById(id).populate('user').lean()
+    console.log(lessonDetail);
     res.render('lessonDetail', {
         title: "Lesson details",
-        lessonDetail: firstLesson,
+        lessonDetail: lessonDetail,
     })
 })
 export default router
