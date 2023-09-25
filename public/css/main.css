@@ -20,11 +20,29 @@ body {
     color: #0d6efd;
 }
 
-.lessonDetailsImgZoom {
+
+/* .lessonDetailsImgZoom {
     width: 80%;
     padding: 2%;
 }
 
 .lessonDetailsImgZoom:hover {
     width: 100%;
+} */
+
+
+/* magnifer css */
+
+.img-magnifier-container {
+    position: relative;
+}
+
+.img-magnifier-glass {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    /*Set the size of the magnifier glass:*/
+    width: 100px;
+    height: 100px;
 }
