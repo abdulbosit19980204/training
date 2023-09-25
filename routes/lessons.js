@@ -56,7 +56,6 @@ router.get('/courses', (req, res) => {
 router.get('/lesson/:id', async(req, res) => {
     const id = req.params.id
     const lessonDetail = await Lesson.findById(id).populate('user').lean()
-    console.log(lessonDetail);
     res.render('lessonDetail', {
         title: "Lesson details",
         lessonDetail: lessonDetail,

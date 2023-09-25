@@ -37,7 +37,7 @@
             <img id="myimage" src="{{lessonDetail.lessonimgPath}}"  class="lessonDetailsImgZoom d-block mx-auto img-fluid rounded-circle bg-info-subtle p-1 mb-3" alt="Bootstrap Themes" loading="lazy">
           <script>
           /* Execute the magnify function: */
-          magnify("myimage", 3);
+          magnify("myimage", 2);
           /* Specify the id of the image, and the strength of the magnifier glass: */
           </script>
           </div>
@@ -47,9 +47,9 @@
         <div class="">{{{lessonDetail.lessonDetails}}}</div>
         <div class="d-flex justify-content-center">
           {{#if isEnded}}
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4"> Done</button>
           {{else}}
-            <button type="button" class="btn btn-danger btn-lg px-4 me-2">Done</button>
+            <button type="submit" class="btn btn-outline-success mt-5 px-4" disabled><i class="fas fa-save"></i> Done</button>
           {{/if}}
         </div>
       </div>
