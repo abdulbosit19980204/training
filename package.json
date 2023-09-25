@@ -7,7 +7,7 @@
     "scripts": {
         "start": "node index.js",
         "dev": "nodemon index.js"
-    },  
+    },
     "author": "Abdulbosit Tuychiev & Mirjalol Qosimov",
     "license": "ISC",
     "dependencies": {
@@ -19,6 +19,7 @@
         "express-handlebars": "^7.1.2",
         "express-session": "^1.17.3",
         "jsonwebtoken": "^9.0.1",
+        "lowdb": "^6.0.1",
         "mongoose": "^7.4.3",
         "nodemon": "^3.0.1"
     },
