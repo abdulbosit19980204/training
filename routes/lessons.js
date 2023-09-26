@@ -2,6 +2,7 @@ import { Router } from "express";
 import Lesson from "../models/Lesson.js";
 import Restaurant from "../models/Restaurants.js"
 import Parts from "../models/Part.js"
+import UserLesson from '../models/UserLessons.js';
 
 
 const router = Router()
@@ -62,5 +63,16 @@ router.get('/lesson/:id', async(req, res) => {
         title: "Lesson details",
         lessonDetail: lessonDetail,
     })
+})
+
+router.get('/lesson-done/:id', async(req, res) => {
+    const userId = req.userId
+    console.log(userId);
+    // const lessonId = req.params.id
+    // console.log(userId, lessonId);
+    // const userLesson = await UserLesson.create({ userId: req.userId, lessonId: req.params.id, })
+    // console.log(userLesson);
+    res.redirect('/learn')
+    return
 })
 export default router

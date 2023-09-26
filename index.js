@@ -8,6 +8,8 @@ import session from "express-session"
 import flash from "connect-flash"
 import cookieParser from "cookie-parser"
 import varMiddleware from "./middleware/var.js"
+import userMiddleware from "./middleware/user.js"
+
 dotenv.config()
 const app = express()
 const hbs = create({ defaultLayout: 'main', extname: 'hbs' })
@@ -26,6 +28,7 @@ app.use(flash())
 app.use(varMiddleware)
 app.use(LessonsRoutes)
 app.use(AuthRoutes)
+app.use(userMiddleware)
 
 const startApp = () => {
     try {

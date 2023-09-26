@@ -47,9 +47,9 @@
         <div class="">{{{lessonDetail.lessonDetails}}}</div>
         <div class="d-flex justify-content-center">
           {{#if isEnded}}
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4"> Done</button>
+            <a type="button" class="btn btn-outline-danger btn-lg px-4" disabled> Done</a>
           {{else}}
-            <button type="submit" class="btn btn-outline-success mt-5 px-4" disabled><i class="fas fa-save"></i> Done</button>
+            <a  href="/lesson-done/{{lessonDetail._id}}" class="btn btn-outline-success mt-5 px-4" ><i class="fas fa-save"></i> Done</a>
           {{/if}}
         </div>
       </div>
