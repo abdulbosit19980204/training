@@ -3,6 +3,7 @@ import Lesson from "../models/Lesson.js";
 import Restaurant from "../models/Restaurants.js"
 import Parts from "../models/Part.js"
 import UserLesson from '../models/UserLessons.js';
+import user from "../middleware/user.js";
 
 
 const router = Router()
@@ -27,7 +28,9 @@ router.get('/community', (req, res) => {
 })
 
 router.get('/learn', async(req, res) => {
+    const userId = req.userId
     const RestaurantData = await Restaurant.find().lean()
+    const UserDoneLesson = await (await UserLesson.find().lean()).length
     const Part = await Parts.find().lean()
     const lessons = await Lesson.find().lean()
     res.render('learn', {
@@ -38,15 +41,12 @@ router.get('/learn', async(req, res) => {
         RestaurantData: RestaurantData,
         lessons: lessons,
         Part: Part,
+        userId: req.userId ? req.userId.toString() : null,
+        UserDoneLesson: UserDoneLesson,
+        lessonsLen: lessons.length,
     })
 })
-router.get('/review', (req, res) => {
-    res.render('review', {
-        title: "Review",
-        isReview: true,
 
-    })
-})
 
 router.get('/courses', (req, res) => {
     res.render('courses', {
@@ -66,12 +66,11 @@ router.get('/lesson/:id', async(req, res) => {
 })
 
 router.get('/lesson-done/:id', async(req, res) => {
+
     const userId = req.userId
-    console.log(userId);
-    // const lessonId = req.params.id
-    // console.log(userId, lessonId);
-    // const userLesson = await UserLesson.create({ userId: req.userId, lessonId: req.params.id, })
-    // console.log(userLesson);
+    const lessonId = req.params.id
+    const userLesson = await UserLesson.create({ userId, lessonId })
+    console.log(userLesson);
     res.redirect('/learn')
     return
 })

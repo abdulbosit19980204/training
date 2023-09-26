@@ -3,16 +3,17 @@ import { engine, create } from "express-handlebars"
 import mongoose from "mongoose"
 import LessonsRoutes from "./routes/lessons.js"
 import AuthRoutes from "./routes/auth.js"
+import ReviewRoutes from "./routes/review.js"
 import * as dotenv from 'dotenv'
 import session from "express-session"
 import flash from "connect-flash"
 import cookieParser from "cookie-parser"
 import varMiddleware from "./middleware/var.js"
-import userMiddleware from "./middleware/user.js"
-
+import user from "./middleware/user.js"
+import helpers from "./utils/index.js"
 dotenv.config()
 const app = express()
-const hbs = create({ defaultLayout: 'main', extname: 'hbs' })
+const hbs = create({ defaultLayout: 'main', extname: 'hbs', helpers: helpers })
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs')
 app.set('views', './views')
@@ -26,10 +27,10 @@ app.use(session({ secret: "T@tu", resave: false, saveUninitialized: false }))
 app.use(flash())
 
 app.use(varMiddleware)
+app.use(user)
 app.use(LessonsRoutes)
+app.use(ReviewRoutes)
 app.use(AuthRoutes)
-app.use(userMiddleware)
-
 const startApp = () => {
     try {
         mongoose.connect(process.env.MONGO_URI, {
