@@ -30,7 +30,7 @@ router.get('/community', (req, res) => {
 router.get('/learn', async(req, res) => {
     const userId = req.userId
     const RestaurantData = await Restaurant.find().lean()
-    const UserDoneLesson = await (await UserLesson.find().lean()).length
+    const UserDoneLesson = await UserLesson.find({ userId: userId }).lean()
     const Part = await Parts.find().lean()
     const lessons = await Lesson.find().lean()
     res.render('learn', {
@@ -43,6 +43,7 @@ router.get('/learn', async(req, res) => {
         Part: Part,
         userId: req.userId ? req.userId.toString() : null,
         UserDoneLesson: UserDoneLesson,
+        UserDoneLessonLen: UserDoneLesson.length,
         lessonsLen: lessons.length,
     })
 })
