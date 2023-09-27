@@ -60,7 +60,6 @@ router.get('/learn/:title', async(req, res) => {
     const Part = await Parts.find().lean()
     const lessons = await Lesson.find({ lessonPart: title }).lean()
     const progress = ((UserDoneLesson.length * 100) / lessons.length).toFixed(2);
-    console.log(progress);
     res.render('learn', {
         title: "Lessons",
         isLearn: true,
