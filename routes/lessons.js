@@ -34,7 +34,8 @@ router.get('/learn', async(req, res) => {
     const Part = await Parts.find().lean()
     const lessons = await Lesson.find().lean()
         // const lessons = await Lesson.find({ lessonPart: "Salatlar" }).lean()
-
+    const progress = ((UserDoneLesson.length * 100) / lessons.length).toFixed(2);
+    console.log(progress);
     res.render('learn', {
         title: "All Lessons",
         isLearn: true,
@@ -47,18 +48,19 @@ router.get('/learn', async(req, res) => {
         UserDoneLesson: UserDoneLesson,
         UserDoneLessonLen: UserDoneLesson.length,
         lessonsLen: lessons.length,
+        progress: progress,
     })
 })
 
 router.get('/learn/:title', async(req, res) => {
+    const title = req.params.title
     const userId = req.userId
     const RestaurantData = await Restaurant.find().lean()
-    const UserDoneLesson = await UserLesson.find({ userId: userId }).lean()
+    const UserDoneLesson = await UserLesson.find({ userId: userId }).populate('lessonId').lean()
     const Part = await Parts.find().lean()
-        // const lessons = await Lesson.find().lean()
-    const title = req.params.title
     const lessons = await Lesson.find({ lessonPart: title }).lean()
-
+    const progress = ((UserDoneLesson.length * 100) / lessons.length).toFixed(2);
+    console.log(progress);
     res.render('learn', {
         title: "Lessons",
         isLearn: true,
@@ -72,6 +74,7 @@ router.get('/learn/:title', async(req, res) => {
         UserDoneLessonLen: UserDoneLesson.length,
         lessonsLen: lessons.length,
         title: title,
+        progress: progress,
     })
 })
 
