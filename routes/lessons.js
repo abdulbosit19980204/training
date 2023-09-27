@@ -33,8 +33,10 @@ router.get('/learn', async(req, res) => {
     const UserDoneLesson = await UserLesson.find({ userId: userId }).lean()
     const Part = await Parts.find().lean()
     const lessons = await Lesson.find().lean()
+        // const lessons = await Lesson.find({ lessonPart: "Salatlar" }).lean()
+
     res.render('learn', {
-        title: "Lessons",
+        title: "All Lessons",
         isLearn: true,
         isComplatedModule: true,
         isCurrentModule: false,
@@ -48,6 +50,30 @@ router.get('/learn', async(req, res) => {
     })
 })
 
+router.get('/learn/:title', async(req, res) => {
+    const userId = req.userId
+    const RestaurantData = await Restaurant.find().lean()
+    const UserDoneLesson = await UserLesson.find({ userId: userId }).lean()
+    const Part = await Parts.find().lean()
+        // const lessons = await Lesson.find().lean()
+    const title = req.params.title
+    const lessons = await Lesson.find({ lessonPart: title }).lean()
+
+    res.render('learn', {
+        title: "Lessons",
+        isLearn: true,
+        isComplatedModule: true,
+        isCurrentModule: false,
+        RestaurantData: RestaurantData,
+        lessons: lessons,
+        Part: Part,
+        userId: req.userId ? req.userId.toString() : null,
+        UserDoneLesson: UserDoneLesson,
+        UserDoneLessonLen: UserDoneLesson.length,
+        lessonsLen: lessons.length,
+        title: title,
+    })
+})
 
 router.get('/courses', (req, res) => {
     res.render('courses', {

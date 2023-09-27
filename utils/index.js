@@ -4,6 +4,13 @@ export default {
             return options.fn(this)
         }
         return options.inverse(this)
-    }
+    },
 
+    isEnded(userId, userDoneId, options) {
+        if (userDoneId == userId) {
+
+            return options.fn(this.isEnded = true)
+        }
+        return options.inverse(this.isEnded = false)
+    }
 }
