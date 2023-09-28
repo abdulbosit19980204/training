@@ -50,6 +50,7 @@ router.post('/login', async(req, res) => {
     if (!isPassEqual) {
         req.flash('logErr', "Password is wrong")
         res.redirect('/login')
+        return
     }
 
     const token = genrateJWTToken(existUser._id)
