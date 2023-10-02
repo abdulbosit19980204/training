@@ -36,10 +36,8 @@ router.get('/learn', async(req, res) => {
     const Part = await Parts.find().lean()
     const lessons = await Lesson.find().sort({ lessonPart: 1 }).lean()
     const progress = ((uniqueLessons.length * 100) / lessons.length).toFixed(2);
-
-    const userData = await User.findById(userId).lean()
+    const userData = req.userData
     console.log(userData);
-
     res.render('learn', {
         title: "All Lessons",
         isLearn: true,
@@ -53,7 +51,7 @@ router.get('/learn', async(req, res) => {
         UserDoneLessonLen: uniqueLessons.length,
         lessonsLen: lessons.length,
         progress: progress,
-        userData: userData,
+        // userData: userData,
     })
 })
 
@@ -61,6 +59,7 @@ router.get('/learn', async(req, res) => {
 
 
 router.get('/learn/:title', async(req, res) => {
+    const userData = req.userData
     const title = req.params.title
     const userId = req.userId
     const RestaurantData = await Restaurant.find().lean()
@@ -88,6 +87,7 @@ router.get('/learn/:title', async(req, res) => {
         lessonsLen: lessons.length,
         title: title,
         progress: progress,
+        userData: userData,
     })
 })
 

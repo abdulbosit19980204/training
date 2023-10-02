@@ -9,5 +9,6 @@ export default async(req, res, next) => {
     const decode = jwt.verify(token, process.env.JWT_SECRET)
     const user = await User.findById(decode.userId)
     req.userId = user._id
+    req.userData = await User.findById(user._id).lean();
     next()
 }
