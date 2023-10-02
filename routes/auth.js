@@ -14,6 +14,7 @@ router.get('/login', (req, res) => {
         logErr: req.flash('logErr'),
     })
 })
+
 router.get('/apply', (req, res) => {
     if (req.cookies.token) {
         res.redirect('/learn')

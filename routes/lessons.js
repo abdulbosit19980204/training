@@ -33,7 +33,8 @@ router.get('/learn', async(req, res) => {
     const uniqueLessonIds = await UserLesson.distinct('lessonId', { userId: userId });
     const uniqueLessons = await Lesson.find({ _id: { $in: uniqueLessonIds } }).lean();
     const Part = await Parts.find().lean()
-    const lessons = await Lesson.find().lean()
+    const lessons = await Lesson.find().sort({ lessonPart: 1 }).lean()
+    console.log(lessons);
     const progress = ((uniqueLessons.length * 100) / lessons.length).toFixed(2);
     res.render('learn', {
         title: "All Lessons",
@@ -50,6 +51,9 @@ router.get('/learn', async(req, res) => {
         progress: progress,
     })
 })
+
+
+
 
 router.get('/learn/:title', async(req, res) => {
     const title = req.params.title
