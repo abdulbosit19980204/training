@@ -59,7 +59,6 @@ router.get('/learn', async(req, res) => {
 
 router.get('/learn/:title', async(req, res) => {
     const userData = req.userData
-    console.log(userData);
     const title = req.params.title
     const userId = req.userId
     const RestaurantData = await Restaurant.find().lean()
@@ -90,37 +89,6 @@ router.get('/learn/:title', async(req, res) => {
     })
 })
 
-// router.get('/courses', async(req, res) => {
-//     const userData = req.userData
-//     const courses = await Parts.find().lean();
-
-//     const lessons = await Lesson.find().lean();
-//     const lessonCounts = {};
-
-//     lessons.forEach(lesson => {
-//         const lessonPart = lesson.lessonPart;
-//         if (lessonCounts[lessonPart]) {
-//             lessonCounts[lessonPart]++;
-//         } else {
-//             lessonCounts[lessonPart] = 1;
-//         }
-//     });
-
-//     const lessonCountsArray = [];
-
-//     for (const lessonPart in lessonCounts) {
-//         lessonCountsArray.push({ lessonPart, count: lessonCounts[lessonPart] });
-//     }
-//     console.log(lessonCounts);
-
-//     res.render('courses', {
-//         title: "Courses",
-//         isCourses: true,
-//         userData: userData,
-//         courses: courses,
-//         lessonCounts: lessonCountsArray,
-//     })
-// })
 router.get('/courses', async(req, res) => {
     const userData = req.userData
     const courses = await Parts.find().lean();
