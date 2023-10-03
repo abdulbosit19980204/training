@@ -34,16 +34,21 @@ router.get('/logout', (req, res) => {
     // Posts
 
 router.post('/login', async(req, res) => {
-    const { email, password } = req.body
-    if (!email || !password) {
+    const { phoneNumber, password } = req.body
+    if (!phoneNumber || !password) {
         req.flash('logErr', "All fileds are required")
         res.redirect('/login')
         return
     }
 
-    const existUser = await User.findOne({ email })
+    const existUser = await User.findOne({ phoneNumber }).lean()
     if (!existUser) {
         req.flash('logErr', "User not found")
+        res.redirect('/login')
+        return
+    }
+    if (existUser.status != 'on') {
+        req.flash('logErr', "User is suspended")
         res.redirect('/login')
         return
     }
@@ -61,9 +66,9 @@ router.post('/login', async(req, res) => {
 })
 
 router.post('/apply', async(req, res) => {
-    const { firstName, lastName, email, password, superAdmin, admin } = req.body
+    const { firstName, lastName, phoneNumber, password, superAdmin, admin } = req.body
     const hashedPassword = await bcrypt.hash(password, 10)
-    if (!firstName || !lastName || !email || !password) {
+    if (!firstName || !lastName || !phoneNumber || !password) {
         req.flash('regErr', "Registration error")
         res.redirect('/apply')
         return
@@ -71,13 +76,13 @@ router.post('/apply', async(req, res) => {
     const userData = {
         firstName: firstName,
         lastName: lastName,
-        email: email,
+        phoneNumber: phoneNumber,
         password: hashedPassword,
         superAdmin: superAdmin ? 'on' : 'off',
         admin: admin ? 'on' : 'off',
 
     }
-    const candidate = await User.findOne({ email })
+    const candidate = await User.findOne({ phoneNumber })
     if (candidate) {
         req.flash('regErr', "User already exsist")
         res.redirect('/apply')
