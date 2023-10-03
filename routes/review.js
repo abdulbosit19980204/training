@@ -4,6 +4,7 @@ import Lesson from "../models/Lesson.js";
 import Parts from "../models/Part.js";
 const router = Router()
 router.get('/review', async(req, res) => {
+    const userData = req.userData
     const userId = req.userId
     const uniqueLessonIds = await UserLesson.distinct('lessonId', { userId: userId });
     const uniqueLessons = await Lesson.find({ _id: { $in: uniqueLessonIds } }).lean();
@@ -18,6 +19,7 @@ router.get('/review', async(req, res) => {
         lessonsLen: lessons.length,
         Part: Part,
         progress: progress,
+        userData: userData,
     })
 })
 

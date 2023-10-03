@@ -90,13 +90,71 @@ router.get('/learn/:title', async(req, res) => {
     })
 })
 
-router.get('/courses', (req, res) => {
+// router.get('/courses', async(req, res) => {
+//     const userData = req.userData
+//     const courses = await Parts.find().lean();
+
+//     const lessons = await Lesson.find().lean();
+//     const lessonCounts = {};
+
+//     lessons.forEach(lesson => {
+//         const lessonPart = lesson.lessonPart;
+//         if (lessonCounts[lessonPart]) {
+//             lessonCounts[lessonPart]++;
+//         } else {
+//             lessonCounts[lessonPart] = 1;
+//         }
+//     });
+
+//     const lessonCountsArray = [];
+
+//     for (const lessonPart in lessonCounts) {
+//         lessonCountsArray.push({ lessonPart, count: lessonCounts[lessonPart] });
+//     }
+//     console.log(lessonCounts);
+
+//     res.render('courses', {
+//         title: "Courses",
+//         isCourses: true,
+//         userData: userData,
+//         courses: courses,
+//         lessonCounts: lessonCountsArray,
+//     })
+// })
+router.get('/courses', async(req, res) => {
+    const userData = req.userData
+    const courses = await Parts.find().lean();
+    const lessons = await Lesson.find().lean();
+    const lessonCounts = {};
+
+    lessons.forEach(lesson => {
+        const lessonPart = lesson.lessonPart;
+        if (lessonCounts[lessonPart]) {
+            lessonCounts[lessonPart]++;
+        } else {
+            lessonCounts[lessonPart] = 1;
+        }
+    });
+
+    const lessonCountsArray = [];
+
+    for (const lessonPart in lessonCounts) {
+        const course = courses.find(course => course.lessonsTypeName === lessonPart);
+        if (course) {
+            lessonCountsArray.push({ lessonPart, count: lessonCounts[lessonPart], lessonTypeImg: course.lessonsTypeImg });
+        } else {
+            lessonCountsArray.push({ lessonPart, count: lessonCounts[lessonPart], lessonTypeImg: 'default-image-url' }); // Provide a default image URL if necessary
+        }
+    }
     res.render('courses', {
         title: "Courses",
         isCourses: true,
-
+        userData: userData,
+        courses: courses,
+        lessonCounts: lessonCountsArray,
     })
 })
+
 
 router.get('/lesson/:id', async(req, res) => {
     const id = req.params.id

@@ -4,47 +4,25 @@
       <p class="fs-3 fw-bolder">What would you like to learn?</p>
     </div>
   </div>
-  
   <div class="row justify-content-center p-4">
-    <div class="col-12 col-md-2 mt-3">
-      <a href="/" class="text-decoration-none text-black">
+  {{#each lessonCounts }}
+   <div class="col-12 col-md-2 mt-3">
+      <a href="/learn/{{lessonPart}} " class="text-decoration-none text-black">
         <div class="rounded-4 border border-light-subtle text-center p-3 custom-border">
-          <img class="rounded-5 mb-3" style="height: 50px;" src="./img/icons/yaponamama_logo_no_text.png" alt="">
-          <br><span class="fs-5 fw-semibold">Yaponamama</span>
-          <div class="card-footer mt-3 p-1 bg-light rounded-3 text-black-50 fw-semibold">+50 foods</div>
+          <img class="rounded-5 mb-3" style="height: 50px;" src="{{lessonTypeImg}}" alt="">
+          <br><span class="fs-5 fw-semibold">{{lessonPart}} </span>
+          <div class="card-footer mt-3 p-1 bg-light rounded-3 text-black-50 fw-semibold">
+           {{count}} Lessons 
+          </div>
         </div>
       </a>
     </div>
-    
-    <div class="col-12 col-md-2 mt-3">
-      <a href="/" class="text-decoration-none text-black">
-        <div class="rounded-4 border border-light-subtle text-center p-3 custom-border">
-          <img class="rounded-5 mb-3" style="height: 50px;" src="./img/icons/feedUp.jpg" alt="">
-          <br><span class="fs-5 fw-semibold">FeedUp</span>
-          <div class="card-footer mt-3 p-1 bg-light rounded-3 text-black-50 fw-semibold">+300 workers</div>
-        </div>
-      </a>
-    </div>
-    
-    <div class="col-12 col-md-2 mt-3">
-      <a href="/" class="text-decoration-none text-black">
-        <div class="rounded-4 border border-light-subtle text-center p-3 custom-border">
-          <img class="rounded-5 mb-3" style="height: 50px;" src="./img/icons/max-way.jpg" alt="">
-          <br><span class="fs-5 fw-semibold">MaxWay</span>
-          <div class="card-footer mt-3 p-1 bg-light rounded-3 text-black-50 fw-semibold">+700 workers</div>
-        </div>
-      </a>
-    </div>
-    
-    <div class="col-12 col-md-2 mt-3">
-      <a href="/" class="text-decoration-none text-black">
-        <div class="rounded-4 border border-light-subtle text-center p-3 custom-border">
-          <img class="rounded-5 mb-3" style="height: 50px;" src="./img/icons/oqtepa.jpg" alt="">
-          <br><span class="fs-5 fw-semibold">Oqtepa Lavash</span>
-          <div class="card-footer mt-3 p-1 bg-light rounded-3 text-black-50 fw-semibold">+600 workers</div>
-        </div>
-      </a>
-    </div>
-  
+  {{/each}}
+   
+
   </div>
 </div>
+
+
+
+
