@@ -20,10 +20,11 @@ router.get('/', (req, res) => {
 })
 
 router.get('/community', (req, res) => {
+    const userData = req.userData
     res.render('community', {
         title: "Community",
         isCommunity: true,
-
+        userData: userData,
     })
 
 })
