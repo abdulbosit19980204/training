@@ -19,12 +19,22 @@ router.get('/', (req, res) => {
 
 })
 
-router.get('/community', (req, res) => {
+router.get('/community', async(req, res) => {
     const userData = req.userData
+    const distinctUsers = await UserLesson.distinct('userId');
+    // const userLastDoneLesson = await UserLesson.findOne().populate('userId').populate('lessonId').lean()
+    const distinctUsersWithData = await Promise.all(
+        distinctUsers.map(async(userId) => {
+            const userLesson = await UserLesson.findOne({ userId }).populate('userId').populate('lessonId').lean();
+            return userLesson;
+        })
+    );
+    console.log(distinctUsersWithData);
     res.render('community', {
         title: "Community",
         isCommunity: true,
         userData: userData,
+        usersDoneLesson: distinctUsersWithData,
     })
 
 })
