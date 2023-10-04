@@ -6,10 +6,14 @@
                 <div class="d-flex align-items-center gap-3 mb-3">
                     <img class="rounded-circle" width="60" height="60" src="{{userId.userImg}}" alt="">
                     <div>
-                        <strong class="d-block">{{userId.firstName }} {{userId.lastName}}</strong>
-                        <span class="p-2 text-dark-emphasis bg-light-subtle rounded-pill">
+                        <strong class="d-block mb-2">{{userId.firstName }} {{userId.lastName}}</strong>
+                        <span class="p-2 mt-2 text-dark-emphasis bg-light-subtle rounded-pill">
+                            
                             {{!-- <img class="rounded-circle me-1" width="24" height="24" src="{{lessonId.lessonimgPath}}" alt=""> --}}
                             {{userId.position}}
+                            <span class="sup text-warning">
+                             <i class="bi bi-star-half"></i><i class="bi bi-star"></i>
+                            </span>
                         </span>
                     </div>
                 </div>
