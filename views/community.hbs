@@ -1,27 +1,27 @@
-<div class="row">
+<div class="row mb-5 pb-5">
     {{#each usersDoneLesson}}
     <div class="col-12 col-md-6 col-lg-4 mb-4">
-        <div class="card rounded-3 shadow-sm">
+        <div class=" card border border-none rounded-3 shadow-sm">
             <div class="card-body">
                 <div class="d-flex align-items-center gap-3 mb-3">
                     <img class="rounded-circle" width="60" height="60" src="{{userId.userImg}}" alt="">
                     <div>
                         <strong class="d-block">{{userId.firstName }} {{userId.lastName}}</strong>
-                        <span class="badge d-flex align-items-center p-1 pe-2 text-dark-emphasis bg-light-subtle rounded-pill">
-                            <img class="rounded-circle me-1" width="24" height="24" src="{{lessonId.lessonimgPath}}" alt="">
-                            {{lessonId.lessonTitle}}
+                        <span class="p-2 text-dark-emphasis bg-light-subtle rounded-pill">
+                            {{!-- <img class="rounded-circle me-1" width="24" height="24" src="{{lessonId.lessonimgPath}}" alt=""> --}}
+                            {{userId.position}}
                         </span>
                     </div>
                 </div>
                 <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-2 px-3 lh-sm text-start">
                     <svg class="bi" width="24" height="24"><use xlink:href="#music-note-beamed"></use></svg>
                     <div>
-                        <strong class="d-block">Another product</strong>
+                        <strong class="d-block">Last lesson</strong>
                         <small>Explore this other product we offer</small>
                     </div>
                 </a>
             </div>
-            <div class=" p-2 text-info-emphasis bg-info-subtle border border-info-subtle d-flex justify-content-center">
+            <div class=" p-2 bg-info-subtle  border-info-subtle d-flex justify-content-center">
                 <a href="#" class="btn btn-outline-primary rounded-5">
                     <strong class="d-block">
                         <i class="bi bi-people"></i>
