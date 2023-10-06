@@ -36,7 +36,6 @@ router.get('/community', async(req, res) => {
             return userLesson;
         })
     );
-    console.log(distinctUsersWithData);
     res.render('community', {
         title: "Community",
         isCommunity: true,
