@@ -12,7 +12,9 @@
                             {{!-- <img class="rounded-circle me-1" width="24" height="24" src="{{lessonId.lessonimgPath}}" alt=""> --}}
                             {{userId.position}}
                             <span class="sup text-warning">
-                             <i class="bi bi-star-half"></i><i class="bi bi-star"></i>
+                             <i class="bi bi-star-fill"></i>
+                             <i class="bi bi-star-fill"></i>
+                             <i class="bi bi-star-half"></i>
                             </span>
                         </span>
                     </div>
@@ -34,14 +36,26 @@
                 </a>
                 <hr>
             </div>
+            {{#ifequal ../myUserId userId._id}}
+            <div class=" p-2 bg-danger-subtle  border-danger-subtle d-flex justify-content-center">
+                <a href="/compete/{{userId._id}}" class="btn btn-outline-secondary rounded-5">
+                    <strong class="d-block">
+                        <i class="bi bi-people"></i>
+                        my
+                    </strong>
+                </a>
+            </div>
+            {{else}}
             <div class=" p-2 bg-info-subtle  border-info-subtle d-flex justify-content-center">
-                <a href="#" class="btn btn-outline-primary rounded-5">
+                <a href="/compete/{{userId._id}}" class="btn btn-outline-primary rounded-5">
                     <strong class="d-block">
                         <i class="bi bi-people"></i>
                         Compete
                     </strong>
                 </a>
             </div>
+
+            {{/ifequal}}
         </div>
     </div>
     {{/each}}

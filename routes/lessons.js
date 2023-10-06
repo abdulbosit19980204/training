@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/community', async(req, res) => {
+    const myUserId = req.userId
     const userData = req.userData
     const distinctUsers = await UserLesson.distinct('userId');
     // const userLastDoneLesson = await UserLesson.findOne().populate('userId').populate('lessonId').lean()
@@ -29,12 +30,13 @@ router.get('/community', async(req, res) => {
             return userLesson;
         })
     );
-    console.log(distinctUsersWithData);
+    // console.log(distinctUsersWithData);
     res.render('community', {
         title: "Community",
         isCommunity: true,
         userData: userData,
         usersDoneLesson: distinctUsersWithData,
+        myUserId: myUserId,
     })
 
 })

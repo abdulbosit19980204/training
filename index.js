@@ -4,6 +4,7 @@ import mongoose from "mongoose"
 import LessonsRoutes from "./routes/lessons.js"
 import AuthRoutes from "./routes/auth.js"
 import ReviewRoutes from "./routes/review.js"
+import CompeteRoutes from "./routes/compete.js"
 import * as dotenv from 'dotenv'
 import session from "express-session"
 import flash from "connect-flash"
@@ -31,6 +32,7 @@ app.use(user)
 app.use(LessonsRoutes)
 app.use(ReviewRoutes)
 app.use(AuthRoutes)
+app.use(CompeteRoutes)
 const startApp = () => {
     try {
         mongoose.connect(process.env.MONGO_URI, {
