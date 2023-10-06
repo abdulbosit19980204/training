@@ -7,6 +7,8 @@ const UserSchema = new Schema({
     password: { type: String, required: true },
     superAdmin: { type: String, required: true },
     admin: { type: String, required: true },
+}, {
+    timestamps: true,
 })
 
 const User = model('User', UserSchema)

@@ -1,0 +1,128 @@
+/* body {
+    background-color: #eee;
+} */
+
+label.radio {
+    cursor: pointer;
+}
+
+label.radio input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+label.radio span {
+    padding: 4px 0px;
+    border: 1px solid red;
+    display: inline-block;
+    color: red;
+    width: 100px;
+    text-align: center;
+    border-radius: 3px;
+    margin-top: 7px;
+    text-transform: uppercase;
+}
+
+label.radio input:checked+span {
+    border-color: red;
+    background-color: red;
+    color: #fff;
+}
+
+.ans {
+    margin-left: 36px !important;
+}
+
+.btn:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn:active {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+
+/* new */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif
+}
+
+p {
+    margin: 0%
+}
+
+label.box {
+    display: flex;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #ddd
+}
+
+#one:checked~label.first,
+#two:checked~label.second,
+#three:checked~label.third,
+#four:checked~label.forth,
+#five:checked~label.fifth,
+#six:checked~label.sixth,
+#seven:checked~label.seveth,
+#eight:checked~label.eighth {
+    border-color: #8e498e
+}
+
+#one:checked~label.first .circle,
+#two:checked~label.second .circle,
+#three:checked~label.third .circle,
+#four:checked~label.forth .circle,
+#five:checked~label.fifth .circle,
+#six:checked~label.sixth .circle,
+#seven:checked~label.seveth .circle,
+#eight:checked~label.eighth .circle {
+    border: 6px solid #8e498e;
+    background-color: #fff
+}
+
+label.box:hover {
+    background: #d5bbf7
+}
+
+label.box .course {
+    display: flex;
+    align-items: center;
+    width: 100%
+}
+
+label.box .circle {
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #ddd;
+    display: inline-block
+}
+
+input[type="radio"] {
+    display: none
+}
+
+.btn.btn-primary {
+    border-radius: 25px;
+    margin-top: 20px
+}
+
+@media(max-width: 450px) {
+    .subject {
+        font-size: 12px
+    }
+}
