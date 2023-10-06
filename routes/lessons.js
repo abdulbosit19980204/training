@@ -26,11 +26,17 @@ router.get('/community', async(req, res) => {
     // const userLastDoneLesson = await UserLesson.findOne().populate('userId').populate('lessonId').lean()
     const distinctUsersWithData = await Promise.all(
         distinctUsers.map(async(userId) => {
-            const userLesson = await UserLesson.findOne({ userId }).populate('userId').populate('lessonId').lean();
+            // const userLesson = await UserLesson.findOne({ userId }).populate('userId').populate('lessonId').lean();
+            const userLesson = await UserLesson.findOne({ userId })
+                .populate('userId')
+                .populate('lessonId')
+                .sort({ completedAt: -1 }) // Sort by completedAt in descending order
+                .limit(1) // Get only the latest record
+                .lean();
             return userLesson;
         })
     );
-    // console.log(distinctUsersWithData);
+    console.log(distinctUsersWithData);
     res.render('community', {
         title: "Community",
         isCommunity: true,

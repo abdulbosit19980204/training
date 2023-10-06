@@ -21,12 +21,14 @@
                 </div>
                 <hr>
                 <a href="#" class="btn btn-hover-light rounded-2 d-flex align-items-start gap-2 py-2 px-3 lh-sm text-start">
-                    <svg class="bi" width="24" height="24"><use xlink:href="#music-note-beamed"></use></svg>
+                    {{!-- <svg class="bi" width="24" height="24"><use xlink:href="#music-note-beamed"></use></svg> --}}
+                    <i class="bi bi-bar-chart-fill text-warning" width="24" height="24"></i>
                     <div>
                         <div class="row">
                         <div class="col-9">
-                        <strong class="d-block">{{lessonId.lessonPart}}</strong>
-                        <small>{{lessonId.lessonDescription}}</small>
+                        <strong class="d-block text-secondary mb-1">Last Lesson</strong>
+                        <strong class="d-block fw-semibold mb-1">{{lessonId.lessonTitle }}</strong>
+                        <small class="text-secondary">{{lessonId.lessonPart}}</small> / <small class="text-secondary">{{lessonId.lessonDescription}}</small>
                         </div>
                         <div class="col-3">
                             <img class="rounded-circle me-1" width="54" height="54" src="{{lessonId.lessonimgPath}}" alt="">
@@ -41,7 +43,7 @@
                 <a href="/compete/{{userId._id}}" class="btn btn-outline-secondary rounded-5">
                     <strong class="d-block">
                         <i class="bi bi-people"></i>
-                        my
+                        Compete
                     </strong>
                 </a>
             </div>
