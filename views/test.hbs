@@ -4,38 +4,28 @@
                 <div class="border ">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                            <h4>MCQ Quiz</h4><span>(5 of 20)</span></div>
+                            <h4>{{competeData.lessonTitle}} Quizs</h4><span>(1 of {{quizDataLen}})</span></div>
                     </div>
                     <div class="question bg-white p-3 border-bottom">
+                        {{#each quizData}}
                         <div class="d-flex flex-row align-items-center question-title">
                             <h3 class="text-danger">Q.</h3>
-                            <h5 class="mt-1 ml-2">Which of the following country has largest population?</h5>
+                            <h5 class="mt-1 ml-2">{{{quizText}}}</h5>
                         </div>
-                    {{!-- <div class="ans ml-2">
-                    <label class="radio"> <input type="radio" name="brazil" value="brazil"> <span>Brazil</span>
-                    </label>    
-                    </div><div class="ans ml-2">
-                    <label class="radio"> <input type="radio" name="Germany" value="Germany"> <span>Germany</span>
-                    </label>    
-                    </div><div class="ans ml-2">
-                    <label class="radio"> <input type="radio" name="Indonesia" value="Indonesia"> <span>Indonesia</span>
-                    </label>    
-                    </div><div class="ans ml-2">
-                    <label class="radio"> <input type="radio" name="Russia" value="Russia"> <span>Russia</span>
-                    </label>    
-                    </div> --}}
-
-                   
+                                    
                         <div class="row">
-                            <div class="col-md-6"> <input type="radio" name="box" id="five"> <label for="five" class="box fifth w-100"> <div class="course"> <span class="circle"></span> <span class="subject">is</span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="box" id="six"> <label for="six" class="box sixth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> was </span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="box" id="seven"> <label for="seven" class="box seveth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> will </span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="box" id="eight"> <label for="eight" class="box eighth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> None of the above </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="box" id="five"> <label for="five" class="box fifth w-100"> <div class="course"> <span class="circle"></span> <span class="subject">{{optionA}}</span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="box" id="six"> <label for="six" class="box sixth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionB}} </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="box" id="seven"> <label for="seven" class="box seveth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionC}} </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="box" id="eight"> <label for="eight" class="box eighth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionD}} </span> </div> </label> </div>
                         </div>
-                    
+                        {{/each}}
 
                 </div>
-                    <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white"><button class="btn btn-primary d-flex align-items-center btn-danger" type="button"><i class="fa fa-angle-left mt-1 mr-1"></i>&nbsp;previous</button><button class="btn btn-primary border-success align-items-center btn-success" type="button">Next<i class="fa fa-angle-right ml-2"></i></button></div>
+                    <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                        <a class="btn btn-primary d-flex align-items-center btn-danger" href="/test/{{_id}}?page=1"><i class="fa fa-angle-left mt-1 mr-1"></i> Previous</a>
+                        <a class="btn btn-primary border-success align-items-center btn-success" type="button">Next<i class="fa fa-angle-right ml-2"></i></a>
+                    </div>  
                 </div>
             </div>
         </div>
