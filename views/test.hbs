@@ -5,7 +5,7 @@
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row justify-content-between align-items-center mcq">
                             
-                            <h4><img src="{{competeData.lessonimgPath}}" style="border-radius: 100%; border: 2px solid rgb(211, 211, 211); height: 65px; width: 65px; padding: 2px; background-color: rgb(244, 245, 248);" alt=""> {{competeData.lessonTitle}} Quizs</h4><span>
+                            <h4 class="d-flex gap-3 align-items-center"><img class="d-none d-md-flex" src="{{competeData.lessonimgPath}}" style="border-radius: 100%; border: 2px solid rgb(211, 211, 211); height: 65px; width: 65px; padding: 2px; background-color: rgb(244, 245, 248);" alt=""> {{competeData.lessonTitle}} Quizs</h4><span>
                                 <div class="btn-group btn-group-sm" role="group">
                                     <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{page}}
@@ -19,6 +19,7 @@
                                 ({{page}} of {{quizDataLen}})</span></div>
                     </div>
                     <div class="question bg-white p-3 border-bottom">
+                        <form action="/sended-answer" method="post">
                         {{#each quizData}}
                         <div class="d-flex flex-row align-items-center question-title">
                             <h3 class="text-danger">Q.</h3>
@@ -26,10 +27,10 @@
                         </div>
                                     
                         <div class="row">
-                            <div class="col-md-6"> <input type="radio" name="box" id="five"> <label for="five" class="box fifth w-100"> <div class="course"> <span class="circle"></span> <span class="subject">{{optionA}}</span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="box" id="six"> <label for="six" class="box sixth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionB}} </span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="box" id="seven"> <label for="seven" class="box seveth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionC}} </span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="box" id="eight"> <label for="eight" class="box eighth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionD}} </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="{{optionA}}" id="five"> <label for="five" class="box fifth w-100"> <div class="course"> <span class="circle"></span> <span class="subject">{{optionA}}</span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="{{optionB}}" id="six"> <label for="six" class="box sixth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionB}} </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="{{optionC}}" id="seven"> <label for="seven" class="box seveth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionC}} </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="{{optionD}}" id="eight"> <label for="eight" class="box eighth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionD}} </span> </div> </label> </div>
                         </div>
                         {{/each}}
 
@@ -37,12 +38,14 @@
                     <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
                         {{#ifequal page pages.length}}
                         <a class="btn btn-primary d-flex align-items-center btn-danger" href="/test/{{competeTestId}}?page=1"><i class="fa fa-angle-left mt-1 mr-1"></i> Previous</a>
-                        <a class="btn btn-primary border-success align-items-center btn-success" type="button">Submit<i class="fa fa-angle-right ml-2"></i></a>
+                        <button class="btn btn-primary border-success align-items-center btn-success" type="submit">Submit<i class="fa fa-angle-right ml-2"></i></button>
                         {{else}}
                         <a class="btn btn-primary d-flex align-items-center btn-danger" href="/test/{{competeTestId}}?page=1"><i class="fa fa-angle-left mt-1 mr-1"></i> Previous</a>
+                        <button class="btn btn-primary border-success align-items-center btn-success" type="submit">Continiue<i class="fa fa-angle-right ml-2"></i></button>
                         <a class="btn btn-primary border-success align-items-center btn-success" href="/test/{{competeTestId}}?page={{pages.length}}">Next<i class="fa fa-angle-right ml-2"></i></a>
 
                         {{/ifequal}}
+                        </form>
                     </div>  
                 </div>
             </div>

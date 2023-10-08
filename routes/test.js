@@ -3,6 +3,7 @@ import Lesson from "../models/Lesson.js";
 import Quiz from "../models/Quiz.js"
 
 const router = Router()
+
 router.get('/test/:id', async(req, res) => {
     const userData = req.userData
     const id = req.params.id
@@ -28,5 +29,12 @@ router.get('/test/:id', async(req, res) => {
         page: page,
         competeTestId: competeTestId,
     })
+})
+
+// Posts
+
+router.post('/sended-answer', (req, res) => {
+    console.log(req.body);
+    res.redirect('/community')
 })
 export default router
