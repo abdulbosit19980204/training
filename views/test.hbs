@@ -1,22 +1,28 @@
 <div class="container  mb-5 pb-5">
         <div class="d-flex justify-content-center row ">
-            <div class="col-md-10 col-lg-10 rounded-4">
-                <div class="border ">
+            <div class="col-md-10 col-lg-10 bg-info-subtle p-2 rounded">
+                <div class="border border-1 rounded-1 border-info">
                     <div class="question bg-white p-3 border-bottom">
                         <div class="d-flex flex-row justify-content-between align-items-center mcq">
                             
-                            <h4 class="d-flex gap-3 align-items-center"><img class="d-none d-md-flex" src="{{competeData.lessonimgPath}}" style="border-radius: 100%; border: 2px solid rgb(211, 211, 211); height: 65px; width: 65px; padding: 2px; background-color: rgb(244, 245, 248);" alt=""> {{competeData.lessonTitle}} Quizs</h4><span>
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{page}}
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                    {{#each pages}}
-                                    <li><a class="dropdown-item" href="/test/{{../competeTestId}}?page={{this}}">{{this}}</a></li>
-                                    {{/each}}
-                                    </ul>
+                            <h4 class="d-flex gap-3 align-items-center"><img class="d-none d-md-flex" src="{{competeData.lessonimgPath}}" style="border-radius: 100%; border: 2px solid rgb(211, 211, 211); height: 65px; width: 65px; padding: 2px; background-color: rgb(244, 245, 248);" alt=""> {{competeData.lessonTitle}} Quizs</h4>
+                                <span>
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{!-- {{page}}  --}}
+                                        {{page}} of {{quizDataLen}}
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                        {{#each pages}}
+                                        {{!-- <li><a class="dropdown-item" href="/test/{{../competeTestId}}?page={{this}}">{{this}}</a></li> --}}
+                                        <li><a class="dropdown-item" href="/test/{{../competeTestId}}?page={{this}} {{_id}}">{{this}}</a></li>
+                                        {{/each}}
+                                        </ul>
+                                    </div>
+                                    {{!-- ({{page}} of {{quizDataLen}}) --}}
+                                    {{!-- ({{quizDataLen}} quizes) --}}
+                                </span>
                                 </div>
-                                ({{page}} of {{quizDataLen}})</span></div>
                     </div>
                     <div class="question bg-white p-3 border-bottom">
                         <form action="/sended-answer" method="post">
@@ -25,15 +31,16 @@
                             <h3 class="text-danger">Q.</h3>
                             <h5 class="mt-1 ml-2">{{{quizText}}}</h5>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6"> <input type="radio" name="option{{competeTestId}}" value="{{optionA}}" id="five"> <label for="five" class="box fifth w-100"> <div class="course"> <span class="circle"></span> <span class="subject">{{optionA}}</span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="option{{competeTestId}}" value="{{optionB}}" id="six"> <label for="six" class="box sixth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionB}} </span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="option{{competeTestId}}" value="{{optionC}}" id="seven"> <label for="seven" class="box seveth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionC}} </span> </div> </label> </div>
-                            <div class="col-md-6"> <input type="radio" name="option{{competeTestId}}" value="{{optionB}}" id="eight"> <label for="eight" class="box eighth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionD}} </span> </div> </label> </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6"> <input type="radio" name="{{_id}}" value="{{optionA}}" id="question_{{_id}}_OptionA"> <label for="question_{{_id}}_OptionA" class="box fifth w-100"> <div class="course"> <span class="circle"></span> <span class="subject">{{optionA}}  </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="{{_id}}" value="{{optionB}}" id="question_{{_id}}_OptionB"> <label for="question_{{_id}}_OptionB" class="box sixth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionB}}  </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="{{_id}}" value="{{optionC}}" id="question_{{_id}}_OptionC"> <label for="question_{{_id}}_OptionC" class="box seveth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionC}} </span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="{{_id}}" value="{{optionB}}" id="question_{{_id}}_OptionD"> <label for="question_{{_id}}_OptionD" class="box eighth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{optionD}}</span> </div> </label> </div>
                         </div>
                         {{/each}}
 
-                </div>
+                    </div>
+
                     <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
                         {{#ifequal page pages.length}}
                         <a class="btn btn-primary d-flex align-items-center btn-danger" href="/test/{{competeTestId}}?page=1"><i class="fa fa-angle-left mt-1 mr-1"></i> Previous</a>
@@ -46,7 +53,10 @@
                         {{/ifequal}}
                         </form>
                     </div>  
+
+                    
                 </div>
+               
             </div>
         </div>
     </div>

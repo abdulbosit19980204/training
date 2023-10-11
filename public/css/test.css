@@ -93,6 +93,15 @@ label.box {
     background-color: #fff
 }
 
+[id^="question_"]:checked~label {
+    border-color: #8e498e;
+}
+
+[id^="question_"]:checked~label .circle {
+    border: 6px solid #8e498e;
+    background-color: #fff;
+}
+
 label.box:hover {
     background: #d5bbf7
 }
