@@ -158,7 +158,17 @@ router.get('/lesson-done/:id', async(req, res) => {
     const userId = req.userId
     const lessonId = req.params.id
     const userLesson = await UserLesson.create({ userId, lessonId })
-    res.redirect('/learn')
+    res.redirect('/lesson-done')
     return
+})
+
+router.get('/lesson-done', (req, res) => {
+    const userId = req.userId
+    const userData = req.userData
+    res.render('lessonDone', {
+        title: "Lesson Done",
+        userData: userData,
+
+    })
 })
 export default router

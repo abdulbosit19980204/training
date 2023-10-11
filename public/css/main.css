@@ -55,3 +55,11 @@ body {
     /* display: none; */
     cursor: none;
 }
+
+.pointsDiv {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(218, 225, 234);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: default;
+}

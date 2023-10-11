@@ -33,7 +33,9 @@ router.get('/test/:id', async(req, res) => {
 
 // Posts
 
-router.post('/sended-answer', (req, res) => {
+router.post('/sended-answer', async(req, res) => {
+    const userId = req.userId
+        // const competerId =req.
     console.log(req.body);
     res.redirect('/community')
 })
