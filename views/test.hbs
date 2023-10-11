@@ -41,14 +41,14 @@
 
                     </div>
 
-                    <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                    <div class="d-flex flex-row justify-content-center align-items-center p-3 bg-white gap-3">
                         {{#ifequal page pages.length}}
                         <a class="btn btn-primary d-flex align-items-center btn-danger" href="/test/{{competeTestId}}?page=1"><i class="fa fa-angle-left mt-1 mr-1"></i> Previous</a>
                         <button class="btn btn-primary border-success align-items-center btn-success" type="submit">Submit<i class="fa fa-angle-right ml-2"></i></button>
                         {{else}}
-                        <a class="btn btn-primary d-flex align-items-center btn-danger" href="/test/{{competeTestId}}?page=1"><i class="fa fa-angle-left mt-1 mr-1"></i> Previous</a>
-                        <button class="btn btn-primary border-success align-items-center btn-success" type="submit">Continiue<i class="fa fa-angle-right ml-2"></i></button>
-                        <a class="btn btn-primary border-success align-items-center btn-success" href="/test/{{competeTestId}}?page={{pages.length}}">Next<i class="fa fa-angle-right ml-2"></i></a>
+                        <a class="btn btn-primary d-flex align-items-center btn-danger" href="/community"><i class="fa fa-angle-left mt-1 mr-1"></i> Cancel</a>
+                        <button class="btn btn-primary border-success align-items-center btn-success" type="submit">Submit<i class="fa fa-angle-right ml-2"></i></button>
+                        {{!-- <a class="btn btn-primary border-success align-items-center btn-success" href="/test/{{competeTestId}}?page={{pages.length}}">Next<i class="fa fa-angle-right ml-2"></i></a> --}}
 
                         {{/ifequal}}
                         </form>
