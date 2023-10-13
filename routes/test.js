@@ -34,9 +34,26 @@ router.get('/test/:id', async(req, res) => {
 // Posts
 
 router.post('/sended-answer', async(req, res) => {
-    const userId = req.userId
-        // const competerId =req.
-    console.log(req.body);
-    res.redirect('/community')
-})
+    const userId = req.userId;
+    const quizIds = Object.keys(req.body);
+
+    // Iterate through the quiz IDs
+    quizIds.forEach(async(quizId) => {
+        const answer = req.body[quizId]; // Get the user's answer for this quiz
+        // console.log(answer);
+        // Now you have both the quiz ID and the user's answer, you can process them as needed.
+        const quiz = await Quiz.findById(quizId);
+        // console.log(quiz.answer);
+        if (quiz.answer == answer) {
+            console.log("user answer", answer, "correct");
+            // Here, you can compare `answer` with `quiz.answer` to check if it's correct.
+            // Then, you can do whatever processing you need to do.
+        } else {
+            console.log("incorrect");
+        }
+    });
+
+    res.redirect('/lesson-done');
+});
+
 export default router
