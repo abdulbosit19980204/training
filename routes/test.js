@@ -1,6 +1,8 @@
 import { Router } from "express";
 import Lesson from "../models/Lesson.js";
 import Quiz from "../models/Quiz.js"
+import UserAnswer from "../models/CompeteUserAnswer.js";
+import User from "../models/User.js";
 
 const router = Router()
 
@@ -43,14 +45,25 @@ router.post('/sended-answer', async(req, res) => {
         // console.log(answer);
         // Now you have both the quiz ID and the user's answer, you can process them as needed.
         const quiz = await Quiz.findById(quizId);
-        // console.log(quiz.answer);
+
+        const answerData = {
+            userId: userId,
+            quizId: quizId,
+            answer: answer
+        }
+        const UserAnswerSaved = await UserAnswer.create(answerData)
+        console.log(UserAnswerSaved);
+        let canswer
+        let inanswer
+            // console.log(quiz.answer);
         if (quiz.answer == answer) {
-            console.log("user answer", answer, "correct");
+            console.log("user answer", answer, "and correct answer", quiz.answer, "correct");
             // Here, you can compare `answer` with `quiz.answer` to check if it's correct.
             // Then, you can do whatever processing you need to do.
         } else {
             console.log("incorrect");
         }
+        console.log("Correct:", canswer, "incorrect", inanswer);
     });
 
     res.redirect('/lesson-done');
