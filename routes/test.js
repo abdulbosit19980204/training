@@ -4,6 +4,7 @@ import Quiz from "../models/Quiz.js"
 import UserAnswer from "../models/CompeteUserAnswer.js";
 import User from "../models/User.js";
 
+
 const router = Router()
 
 router.get('/test/:id', async(req, res) => {
@@ -33,6 +34,19 @@ router.get('/test/:id', async(req, res) => {
     })
 })
 
+router.get('/compete-done', async(req, res) => {
+    const userData = req.userData
+    const userId = req.userId
+    const testedQuiz = await UserAnswer.find().lean()
+    console.log(testedQuiz);
+
+
+    res.render('competeDone', {
+        title: "Compete Done",
+        userData: userData,
+    })
+})
+
 // Posts
 
 router.post('/sended-answer', async(req, res) => {
@@ -53,9 +67,7 @@ router.post('/sended-answer', async(req, res) => {
         }
         const UserAnswerSaved = await UserAnswer.create(answerData)
         console.log(UserAnswerSaved);
-        let canswer
-        let inanswer
-            // console.log(quiz.answer);
+
         if (quiz.answer == answer) {
             console.log("user answer", answer, "and correct answer", quiz.answer, "correct");
             // Here, you can compare `answer` with `quiz.answer` to check if it's correct.
@@ -63,10 +75,10 @@ router.post('/sended-answer', async(req, res) => {
         } else {
             console.log("incorrect");
         }
-        console.log("Correct:", canswer, "incorrect", inanswer);
+
     });
 
-    res.redirect('/lesson-done');
+    res.redirect('/compete-done');
 });
 
 export default router
