@@ -10,7 +10,7 @@
     </div>
    <div class="row   my-3 d-flex gap-1 justify-content-center fs-5">
      <div class="col-10 mb-3 col-lg-6 pointsDiv d-flex justify-content-between">
-        <span>Points <i class="bi  bi-hand-thumbs-up-fill text-warning"></i>  </span> <span>+15 <i class="bi bi-star-fill text-warning"></i></span>
+        <span>Points <i class="bi  bi-hand-thumbs-up-fill text-warning"></i>  </span> <span>+{{points}} <i class="bi bi-star-fill text-warning"></i></span>
     </div>
     <div class="col-10 col-lg-6 pointsDiv d-flex justify-content-between">
         <span>Score <i class="bi  bi-hand-index-thumb-fill text-warning"></i>  </span> <span>100% <i class="bi bi-bar-chart-fill text-success"></i></span>
@@ -22,4 +22,20 @@
     </div>
    
 </div>
+
+  {{!-- <div class="question bg-white p-3 border-bottom">
+                        <form action="/sended-answer" method="post">
+                        {{#each userSendAnswers}}
+                        <div class="d-flex flex-row align-items-center question-title">
+                            <h3 class="text-danger">Q.</h3>
+                            <h5 class="mt-1 ml-2">{{{quizId.quizText}}}</h5>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6"> <input type="radio" name="{{_id}}" value="{{optionB}}" id="question_{{_id}}_OptionD"> <label for="question_{{_id}}_OptionD" class="box eighth w-100 bg-warning-subtle"> <div class="course"> <span class="circle"></span> <span class="subject"> {{answer}}</span> </div> </label> </div>
+                            <div class="col-md-6"> <input type="radio" name="{{_id}}" value="{{optionB}}" id="question_{{_id}}_OptionD"> <label for="question_{{_id}}_OptionD" class="box eighth w-100"> <div class="course"> <span class="circle"></span> <span class="subject"> {{quizId.answer}}</span> </div> </label> </div>
+                        </div>
+                        {{/each}}
+
+                    </div> --}}
+
 
