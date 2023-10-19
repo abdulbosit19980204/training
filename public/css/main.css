@@ -79,7 +79,7 @@ body {
 /* Customize scrollbar track */
 
 .custom-scroll::-webkit-scrollbar {
-    width: 5px;
+    width: 3px;
     border-radius: 5px;
 }
 
