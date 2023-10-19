@@ -33,3 +33,34 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<!-- lesson details -->
+
+<div class=" p-5 col-sm-10 col-lg-5 text-center  rounded-5 border border-1">
+    <div class="row d-flex justify-content-center flex-lg-row align-items-center g-5 py-5">
+        <div class="col-12 col-md-8 col-lg-6">
+            {{!-- <img src="{{lessonDetail.lessonimgPath}}" class="lessonDetailsImgZoom d-block mx-auto img-fluid rounded-circle bg-info-subtle p-1 mb-3" alt="Bootstrap Themes" loading="lazy"> --}}
+            <div class="img-magnifier-container">
+                <img id="myimage" src="{{lessonDetail.lessonimgPath}}" class="lessonDetailsImgZoom d-block mx-auto img-fluid rounded-circle bg-info-subtle p-1 mb-3" alt="Bootstrap Themes" loading="lazy">
+                <script>
+                    /* Execute the magnify function: */
+                    magnify("myimage", 2);
+                    /* Specify the id of the image, and the strength of the magnifier glass: */
+                </script>
+            </div>
+            <h1 class="fs-5 fw-bold text-body-emphasis bg-info-subtle p-1 rounded pt-2 pb-2 lh-1 mb-3">{{lessonDetail.lessonTitle}}</h1>
+        </div>
+        <div class="col-lg-12">
+            <div class="">{{{lessonDetail.lessonDetails}}}</div>
+            <div class="d-flex justify-content-center">
+                {{#if isEnded}}
+                <a type="button" class="btn btn-outline-danger btn-lg px-4" disabled> Done</a> {{else}}
+                <a href="/lesson-done/{{lessonDetail._id}}" class="btn btn-outline-success mt-5 px-4"><i class="fas fa-save"></i> Done</a> {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
