@@ -39,7 +39,8 @@ const startApp = () => {
     try {
         mongoose.connect(process.env.MONGO_URI, {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 30000,
         })
         const PORT = process.env.PROT || 1998
         app.listen(PORT, () => {

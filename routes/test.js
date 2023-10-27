@@ -38,7 +38,7 @@ router.get('/compete-done', async(req, res) => {
     const userData = req.userData
     const userId = req.userId
     const testedQuiz = await UserAnswer.find().lean()
-    console.log(testedQuiz);
+        // console.log(testedQuiz);
 
 
     res.render('competeDone', {
@@ -49,79 +49,39 @@ router.get('/compete-done', async(req, res) => {
 
 // Posts
 
-// router.post('/sended-answer', async(req, res) => {
-//     let points = 0
-//     const userId = req.userId;
-//     const quizIds = Object.keys(req.body);
-
-//     // Iterate through the quiz IDs
-//     quizIds.forEach(async(quizId) => {
-//         const answer = req.body[quizId]; // Get the user's answer for this quiz
-//         // console.log(answer);
-//         // Now you have both the quiz ID and the user's answer, you can process them as needed.
-//         const quiz = await Quiz.findById(quizId);
-
-//         const answerData = {
-//             userId: userId,
-//             quizId: quizId,
-//             answer: answer
-//         }
-//         const UserAnswerSaved = await UserAnswer.create(answerData)
-//         console.log(UserAnswerSaved);
-
-//         if (quiz.answer == answer) {
-//             points = points + 1
-//             console.log("user answer", answer, "and correct answer", quiz.answer, "correct", " and points => ", points * 5);
-//             // Here, you can compare `answer` with `quiz.answer` to check if it's correct.
-//             // Then, you can do whatever processing you need to do.
-//         } else {
-//             console.log("incorrect");
-//         }
-
-//     });
-
-//     res.render('competeDone', {
-//         title: "Complation",
-//         points: points * 5,
-//     });
-// });
-
 router.post('/sended-answer', async(req, res) => {
-    let points = 0
+    let points = 0;
     const userId = req.userId;
-    const userData = req.userData
+    const userData = req.userData;
     const quizIds = Object.keys(req.body);
 
     // Create an array to store the promises
     const quizPromises = quizIds.map(async(quizId) => {
         const answer = req.body[quizId];
         const quiz = await Quiz.findById(quizId);
-
         const answerData = {
             userId: userId,
             quizId: quizId,
             answer: answer
         }
         const UserAnswerSaved = await UserAnswer.create(answerData);
-        console.log(UserAnswerSaved);
         if (quiz.answer == answer) {
             points = points + 1;
-            // console.log("user answer", answer, "and correct answer", quiz.answer, "correct", " and points => ", points * 5);
-        } else {
-            // console.log("incorrect");
         }
     });
 
     // Wait for all promises to resolve
     await Promise.all(quizPromises);
 
+    const totalQuestions = quizIds.length;
+    const percentage = (points / totalQuestions) * 100;
     const userSendAnswers = await UserAnswer.find({ userId }).populate('userId').populate('quizId').lean();
-    console.log(userSendAnswers);
 
     // Render the response after all promises have resolved
     res.render('competeDone', {
-        title: "Complation",
+        title: "Completion",
         points: points * 5,
+        percentage: percentage, // Add this line to send percentage to the view
         userData: userData,
         userSendAnswers: userSendAnswers,
     });
