@@ -7,7 +7,9 @@ const LessonSchema = new Schema({
     lessonDetails: { type: String, required: true },
     lessonPart: { type: String, required: true },
     restaurant: { type: String, required: true },
+    lessonStatus: { type: String, required: false },
     // lessonDone: { type: Boolean, required: true },
+
     user: { type: Schema.Types.ObjectId, ref: 'User' },
 
 }, { timestamps: true })

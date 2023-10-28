@@ -224,8 +224,12 @@
             <div class="col-8 ">
                 <p class="m-0 fs-5 fw-medium">{{lessonTitle}}</p>
                 <p class="text-secondary fw-lighter">{{lessonDescription}} 
+                  {{#ifequal lessonStatus "old"}}
+                  <span class="badge bg-danger-subtle text-danger-emphasis rounded-pill">Old</span>
+                {{else}}
                   <span class="badge bg-info-subtle text-info-emphasis rounded-pill">New</span>
-  </p>
+                {{/ifequal}}
+                </p>
             </div>
         </div>
         <div class="row">
